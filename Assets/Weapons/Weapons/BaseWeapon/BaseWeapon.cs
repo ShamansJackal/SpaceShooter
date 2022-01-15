@@ -64,13 +64,14 @@ public class BaseWeapon : MonoBehaviour
         if (IsReady)
         {
             SpawnBullet();
+            SpawnBullet(Quaternion.Euler(0, 180, 0));
             StartCooldown();
         }
     }
 
-    protected virtual void SpawnBullet()
+    protected virtual void SpawnBullet(Quaternion rotation = new Quaternion())
     {
-        var bullet = Instantiate(Bullet, transform.position, transform.rotation);
+        var bullet = Instantiate(Bullet, transform.position, transform.rotation * rotation);
         bullet.SetUpStats(damage, bulletSpeed, targets);
         bullet.SetUpTraectory(function);
     }

@@ -48,7 +48,7 @@ MonoBehaviour:
   damageType: 0
   baseDamage: 10
   baseSpeed: 100
-  baseCooldown: 400
+  baseCooldown: 50
 --- !u!212 &-5231278562838167475
 SpriteRenderer:
   m_ObjectHideFlags: 0
