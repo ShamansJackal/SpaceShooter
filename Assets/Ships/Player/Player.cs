@@ -29,6 +29,19 @@ public class Player : MonoBehaviour
             transform.rotation *= Quaternion.AngleAxis(0.1f, Vector3.forward);
         if (Input.GetKey(KeyCode.A))
             transform.rotation *= Quaternion.AngleAxis(0.1f, Vector3.back);
+        if (1.0f / Time.deltaTime < 120)
+            Debug.LogWarning($"{BaseBullet.count} time:{1.0f / Time.deltaTime}");
+        ProffilngBullets();
 
+    }
+
+    private static void ProffilngBullets()
+    {
+        if (1.0f / Time.deltaTime > 120)
+            Debug.Log($"{BaseBullet.count} time:{1.0f / Time.deltaTime}");
+        if (1.0f / Time.deltaTime < 120)
+            Debug.LogWarning($"{BaseBullet.count} time:{1.0f / Time.deltaTime}");
+        if (1.0f / Time.deltaTime < 60)
+            Debug.LogError($"{BaseBullet.count} time:{1.0f / Time.deltaTime}");
     }
 }
