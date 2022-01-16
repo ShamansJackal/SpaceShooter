@@ -13,14 +13,21 @@ public class BaseBullet : MonoBehaviour
 
     private ParametricFunction traectory = Traectories.Sinusoid;
     private Vector2 prevTraectoryValue = new Vector2(0, 0);
+    private Vector2 prevMovementVector = new Vector2(0, 0);
+
     private Quaternion defaultRotation;
+    private Rigidbody2D  body;
     protected int Ticks { get; private set; } = 0;
 
     public DamageType damageType = DamageType.Balistic;
+    public static int count = 0;
 
     private void Start()
     {
         defaultRotation = transform.rotation;
+        body = GetComponent<Rigidbody2D>();
+
+        count++; 
     }
 
     public void SetUpStats(int damage, int speed, List<UnitType> targets)
@@ -39,17 +46,35 @@ public class BaseBullet : MonoBehaviour
     {
         var curTraectoryValue = traectory(Ticks*SPEED_SCALE*speed);
         Vector2 vector = curTraectoryValue - prevTraectoryValue;
-        vector = defaultRotation * vector;
 
+        //transform.rotation = defaultRotation * Quaternion.FromToRotation(Vector2.up * vector.magnitude, vector);
+        transform.rotation = defaultRotation * Rotate(vector);
+        vector = defaultRotation * vector;
+        body.velocity = vector;
+
+        prevMovementVector = vector;
         prevTraectoryValue = curTraectoryValue;
         return vector;
     }
 
-    private void FixedUpdate()
+    protected virtual Quaternion Rotate(Vector3 vector)
     {
-        Vector3 delta = Move();
-        transform.rotation *= Quaternion.FromToRotation(Vector3.zero, delta); ;
-        transform.position += delta;
+        Quaternion rotationToTrajectory;
+        if (vector.magnitude < Mathf.Epsilon)
+        {
+            rotationToTrajectory = Quaternion.identity;
+        }
+        else
+        {
+            Vector3 angFromAxis = new Vector3(0, 0, -Mathf.Asin(vector.x / vector.magnitude)) * Mathf.Rad2Deg;
+            rotationToTrajectory = Quaternion.Euler(angFromAxis);
+        }
+        return rotationToTrajectory;
+    }
+
+    protected virtual void FixedUpdate()
+    {
+        transform.position += Move();
         Ticks++;
     }
 

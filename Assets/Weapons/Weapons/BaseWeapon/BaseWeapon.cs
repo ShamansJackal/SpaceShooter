@@ -40,6 +40,7 @@ public class BaseWeapon : MonoBehaviour
 
     private int ticks = 0;
     private int curTick = 0;
+    static readonly Quaternion defort = new Quaternion(1, 1, 1, 0);
 
     protected bool IsReady => ticks - curTick >= cooldown;
 
@@ -52,6 +53,7 @@ public class BaseWeapon : MonoBehaviour
 
         //„тобы можно было сделать выстрел при получении оружи€
         curTick -= cooldown;
+        Shot();
     }
 
     protected void StartCooldown()
@@ -65,15 +67,23 @@ public class BaseWeapon : MonoBehaviour
         {
             SpawnBullet();
             SpawnBullet(Quaternion.Euler(0, 180, 0));
+            SpawnBullet(Quaternion.Euler(0, 180, 0));
+            SpawnBullet(Quaternion.Euler(0, 180, 0));
             StartCooldown();
         }
     }
 
-    protected virtual void SpawnBullet(Quaternion rotation = new Quaternion())
+    protected virtual void SpawnBullet(Quaternion localRotation)
     {
-        var bullet = Instantiate(Bullet, transform.position, transform.rotation * rotation);
+        var bullet = Instantiate(Bullet, transform.position, transform.rotation * localRotation);
         bullet.SetUpStats(damage, bulletSpeed, targets);
         bullet.SetUpTraectory(function);
+    }
+    
+    //TODO возможно должна быть виртуальной бл€ и вообще это чисто обЄртка
+    protected void SpawnBullet()
+    {
+        SpawnBullet(Quaternion.identity);
     }
 
     private void FixedUpdate()
