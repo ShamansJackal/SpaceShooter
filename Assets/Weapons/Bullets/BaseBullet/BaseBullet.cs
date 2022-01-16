@@ -26,6 +26,7 @@ public class BaseBullet : MonoBehaviour
     {
         defaultRotation = transform.rotation;
         body = GetComponent<Rigidbody2D>();
+        //body.AddForce(Vector2.right, ForceMode2D.Impulse);
 
         count++; 
     }
@@ -47,34 +48,30 @@ public class BaseBullet : MonoBehaviour
         var curTraectoryValue = traectory(Ticks*SPEED_SCALE*speed);
         Vector2 vector = curTraectoryValue - prevTraectoryValue;
 
-        //transform.rotation = defaultRotation * Quaternion.FromToRotation(Vector2.up * vector.magnitude, vector);
-        transform.rotation = defaultRotation * Rotate(vector);
+        transform.rotation = defaultRotation * Quaternion.FromToRotation(Vector2.up * vector.magnitude, vector);
         vector = defaultRotation * vector;
-        body.velocity = vector;
+        body.velocity = vector * 10;
 
         prevMovementVector = vector;
         prevTraectoryValue = curTraectoryValue;
         return vector;
     }
 
-    protected virtual Quaternion Rotate(Vector3 vector)
-    {
-        Quaternion rotationToTrajectory;
-        if (vector.magnitude < Mathf.Epsilon)
-        {
-            rotationToTrajectory = Quaternion.identity;
-        }
-        else
-        {
-            Vector3 angFromAxis = new Vector3(0, 0, -Mathf.Asin(vector.x / vector.magnitude)) * Mathf.Rad2Deg;
-            rotationToTrajectory = Quaternion.Euler(angFromAxis);
-        }
-        return rotationToTrajectory;
-    }
+    //protected virtual float Rotate2(Vector3 vector)
+    //{
+    //    if (vector.magnitude < Mathf.Epsilon) return 0;
+    //    else if(vector.y > 0) return -Mathf.Asin(vector.x / vector.magnitude) * Mathf.Rad2Deg;
+    //    else return 180+Mathf.Asin(vector.x / vector.magnitude) * Mathf.Rad2Deg;
+    //}
+
+    //protected virtual Quaternion Rotate(Vector3 vector)
+    //{
+    //    return Quaternion.Euler(0,0,Rotate2(vector));
+    //}
 
     protected virtual void FixedUpdate()
     {
-        transform.position += Move();
+        Move();
         Ticks++;
     }
 

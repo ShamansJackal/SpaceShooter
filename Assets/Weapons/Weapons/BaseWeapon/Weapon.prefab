@@ -47,7 +47,7 @@ MonoBehaviour:
   Bullet: {fileID: -4764439288408588162, guid: 19bd9ebee26a39a42b290b74da85dd0d, type: 3}
   damageType: 0
   baseDamage: 10
-  baseSpeed: 20
+  baseSpeed: 200
   baseCooldown: 50
 --- !u!212 &-5231278562838167475
 SpriteRenderer:
