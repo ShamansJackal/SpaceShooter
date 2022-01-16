@@ -27,15 +27,15 @@ public static class Traectories
 
         Sinusoid = (float t) =>
         {
-            float x = (float)(Math.Sin(t));
-            float y = t;
+            float x = (float)(Math.Sin(t)*2);
+            float y = t*0.5f;
             return new Vector2(x, y);
         };
 
         Spiral = (float t) =>
         {
-            float x = (float)(Math.Cos(t * 0.1) * (t * 0.1));
-            float y = (float)(Math.Sin(t * 0.1) * (t * 0.1));
+            float x = (float)(Math.Cos(t*0.1) * (0.2*t));
+            float y = (float)(Math.Sin(t*0.1) * (0.2*t));
             return new Vector2(x, y);
         };
 
