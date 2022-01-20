@@ -29,9 +29,7 @@ public class Player : MonoBehaviour
             transform.rotation *= Quaternion.AngleAxis(0.4f, Vector3.forward);
         if (Input.GetKey(KeyCode.A))
             transform.rotation *= Quaternion.AngleAxis(0.4f, Vector3.back);
-        if (1.0f / Time.deltaTime < 120)
-            Debug.LogWarning($"{BaseBullet.count} time:{1.0f / Time.deltaTime}");
-        ProffilngBullets();
+        //ProffilngBullets();
 
     }
 
