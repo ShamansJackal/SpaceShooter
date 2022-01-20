@@ -21,14 +21,14 @@ public static class Traectories
         Direct = (float t) =>
         {
             float x = 0;
-            float y = t;
+            float y = t*2;
             return new Vector2(x, y);
         };
 
         Sinusoid = (float t) =>
         {
-            float x = (float)(Math.Sin(t)*2);
-            float y = t*0.5f;
+            float x = (float)(Math.Sin(t)*5);
+            float y = t*3f;
             return new Vector2(x, y);
         };
 
