@@ -5,13 +5,13 @@ using Random = Unity.Mathematics.Random;
 
 public class Partical : MonoBehaviour
 {
-    private static Random rnd = new Random();
-    private Animator animator;
+    private static Random rnd = new Random(223);
+    public Animator animator;
     protected Guid guid = new Guid();
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
+        animator = animator != null ? animator : GetComponent<Animator>();
         Vector2 vector = new Vector2(rnd.NextFloat(), rnd.NextFloat()).normalized;
         GetComponent<Rigidbody>().AddForce(vector, ForceMode.Impulse);
     }
@@ -22,6 +22,6 @@ public class Partical : MonoBehaviour
     }
     public virtual void Die()
     {
-        Destroy(this);
+        Destroy(gameObject);
     }
 }
