@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class BaseShip: MonoBehaviour, IDamageble
 {
-    [SerializeField]
-    protected UnitType type;
+    public UnitType type;
+
+    public List<Sprite> sprites;
+    public Partical partical;
 
     protected int _healt;
     protected int _shield;
-    protected int _maxShield;
-    protected int _maxHealt;
+
+    public int maxShield;
+    public int maxHealth;
     public int Health
     {
         get => _healt;
         set {
-            if (value >= _maxHealt)
-                _healt = _maxHealt;
+            if (value >= maxHealth)
+                _healt = maxHealth;
             else if (value <= 0)
                 _healt = Die();
             else
@@ -28,12 +31,12 @@ public class BaseShip: MonoBehaviour, IDamageble
     {
         get => _shield;
         set {
-            if (_shield == 0)
+            if (value >= maxShield)
+                _shield = maxShield;
+            else if (_shield == 0)
                 Health -= value;
             else if (value <= 0)
                 _shield = ShieldDown();
-            else if (value >= _maxShield)
-                _shield = _maxShield;
             else
                 _shield = value;
         }
@@ -41,8 +44,8 @@ public class BaseShip: MonoBehaviour, IDamageble
 
     public virtual void Start()
     {
-        Health = _maxHealt;
-        Shield = _maxShield;
+        Health = maxHealth;
+        Shield = maxShield;
     }
 
     public virtual int TakeDamage(int Damage, DamageType damageType)
@@ -63,7 +66,13 @@ public class BaseShip: MonoBehaviour, IDamageble
 
     protected int Die()
     {
-        Destroy(this);
+        for(int i=0;i<3; i++)
+        {
+            var part = Instantiate(partical, transform.position, transform.rotation);
+            part.GetComponent<SpriteRenderer>().sprite = sprites[0];
+        }
+
+        Destroy(gameObject);
         return 0;
     }
     

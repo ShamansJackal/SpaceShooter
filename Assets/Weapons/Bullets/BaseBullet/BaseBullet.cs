@@ -77,6 +77,12 @@ public class BaseBullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if(collision.gameObject.TryGetComponent(out BaseShip ship) && targets.Contains(ship.type))
+        {
+            ship.TakeDamage(damage, damageType);
+            Debug.LogWarning("collissd bullet with enamy");
+            Destroy(this);
+        }
         Debug.LogWarning("collissd bullet");
     }
 

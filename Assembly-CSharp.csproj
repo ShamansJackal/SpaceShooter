@@ -53,7 +53,7 @@
     <UnityVersion>2020.3.25f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Intefaces\IShip.cs" />
+    <Compile Include="Assets\Intefaces\BaseShip.cs" />
     <Compile Include="Assets\Scripts\Enums\DamageTypes.cs" />
     <Compile Include="Assets\Intefaces\IDamageble.cs" />
     <Compile Include="Assets\Weapons\Bullets\BaseBullet\BaseBullet.cs" />
@@ -63,9 +63,8 @@
     <Compile Include="Assets\Scripts\Constants\DefaultStats.cs" />
     <Compile Include="Assets\Ships\Player\Player.cs" />
     <Compile Include="Assets\Weapons\Weapons\BaseWeapon\BaseWeapon.cs" />
-    <Compile Include="Assets\Ships\Player\BaseShip.cs" />
-    <Compile Include="Assets\Intefaces\Playble.cs" />
-    <Compile Include="Assets\Intefaces\IPhysicalObj.cs" />
+    <Compile Include="Assets\Ships\Player\Playble.cs" />
+    <Compile Include="Assets\Scripts\Partical.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

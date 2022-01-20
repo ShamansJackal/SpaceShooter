@@ -32,7 +32,7 @@ public class BaseWeapon : MonoBehaviour
     protected int bulletSpeed;
     //Cooldown in tickets
     protected int cooldown;
-    protected ParametricFunction function = Traectories.Spiral;
+    protected ParametricFunction function = Traectories.Direct;
     //Set up's by weapen owner при получении
     [NonSerialized]
     public List<UnitType> targets;
@@ -40,7 +40,6 @@ public class BaseWeapon : MonoBehaviour
 
     private int ticks = 0;
     private int curTick = 0;
-    static readonly Quaternion defort = new Quaternion(1, 1, 1, 0);
 
     protected bool IsReady => ticks - curTick >= cooldown;
 
@@ -67,8 +66,8 @@ public class BaseWeapon : MonoBehaviour
         {
             SpawnBullet();
             //SpawnBullet(Quaternion.Euler(0, 180, 0));
-            //SpawnBullet(Quaternion.Euler(0, 180, 0));
-            //SpawnBullet(Quaternion.Euler(0, 180, 0));
+            SpawnBullet(Quaternion.Euler(0, 0, -30));
+            SpawnBullet(Quaternion.Euler(0, 0, 30));
             StartCooldown();
         }
     }
