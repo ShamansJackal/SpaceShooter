@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
             transform.rotation *= Quaternion.AngleAxis(0.4f, Vector3.forward);
         if (Input.GetKey(KeyCode.A))
             transform.rotation *= Quaternion.AngleAxis(0.4f, Vector3.back);
-        //ProffilngBullets();
+        ProffilngBullets();
 
     }
 

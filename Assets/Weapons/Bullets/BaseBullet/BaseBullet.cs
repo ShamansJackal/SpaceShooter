@@ -10,13 +10,14 @@ public class BaseBullet : MonoBehaviour
     public int damage = DefaultStats.DEFAULT_DAMAGE;
     public int speed = DefaultStats.DEFAULT_SPEED;
     public List<UnitType> targets;
+    public Rigidbody2D body;
+    public Animator animator;
 
     private ParametricFunction traectory = Traectories.Sinusoid;
     private Vector2 prevTraectoryValue = new Vector2(0, 0);
     private Vector2 prevMovementVector = new Vector2(0, 0);
 
     private Quaternion defaultRotation;
-    private Rigidbody2D  body;
     protected int Ticks { get; private set; } = 0;
 
     public DamageType damageType = DamageType.Balistic;
@@ -25,7 +26,8 @@ public class BaseBullet : MonoBehaviour
     private void Start()
     {
         defaultRotation = transform.rotation;
-        body = GetComponent<Rigidbody2D>();
+        body = body != null ? body : GetComponent<Rigidbody2D>();
+        animator = animator != null ? animator : GetComponent<Animator>();
         //body.AddForce(Vector2.right, ForceMode2D.Impulse);
 
         count++; 
@@ -51,6 +53,7 @@ public class BaseBullet : MonoBehaviour
         transform.rotation = defaultRotation * Quaternion.FromToRotation(Vector2.up * vector.magnitude, vector);
         vector = defaultRotation * vector;
         body.velocity = vector * 10;
+        //if (!body.IsSleeping()) body.velocity = vector * 10;
 
         prevMovementVector = vector;
         prevTraectoryValue = curTraectoryValue;
@@ -77,17 +80,20 @@ public class BaseBullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.TryGetComponent(out BaseShip ship) && targets.Contains(ship.type))
-        {
-            ship.TakeDamage(damage, damageType);
-            Debug.LogWarning("collissd bullet with enamy");
-            Destroy(this);
-        }
-        Debug.LogWarning("collissd bullet");
+        //if(collision.gameObject.TryGetComponent(out BaseShip ship) && targets.Contains(ship.type))
+        //    OnEnemyCollison(ship);
     }
 
-    public virtual void OnEnemyCollison()
+    public virtual void OnEnemyCollison(BaseShip ship)
     {
+        ship.TakeDamage(damage, damageType);
+        Debug.LogWarning("collissd bullet with enamy");
+        //GetComponent<Collider2D>().enabled = false;
+        body.Sleep();
 
+        //body.velocity = new Vector2(0, 0);
+
+        animator.SetTrigger("Explose");
+        //Destroy(gameObject);
     }
 }

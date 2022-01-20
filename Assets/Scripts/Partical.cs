@@ -5,8 +5,8 @@ using Random = Unity.Mathematics.Random;
 
 public class Partical : MonoBehaviour
 {
-    private static Random rnd = new Random();
-    private Animator animator;
+    private static Random rnd = new Random(223);
+    Animator animator;
     protected Guid guid = new Guid();
 
     private void Start()
@@ -22,6 +22,6 @@ public class Partical : MonoBehaviour
     }
     public virtual void Die()
     {
-        Destroy(this);
+        Destroy(gameObject);
     }
 }
