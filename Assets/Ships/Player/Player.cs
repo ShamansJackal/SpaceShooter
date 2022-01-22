@@ -19,6 +19,7 @@ public class Player : MonoBehaviour
 
     public void Update()
     {
+
         if (Input.GetKey(KeyCode.Space))
             weapon.Shot();
         if (Input.GetKey(KeyCode.W))
@@ -27,8 +28,9 @@ public class Player : MonoBehaviour
             transform.position += Vector3.down * 0.02f;
         if (Input.GetKey(KeyCode.D))
             transform.rotation *= Quaternion.AngleAxis(0.4f, Vector3.forward);
-        if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A))
             transform.rotation *= Quaternion.AngleAxis(0.4f, Vector3.back);
+        else transform.position += Vector3.right * (0.02f * Input.GetAxis("Horizontal"));
         //ProffilngBullets();
 
     }

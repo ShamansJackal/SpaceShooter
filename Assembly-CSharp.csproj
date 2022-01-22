@@ -65,6 +65,7 @@
     <Compile Include="Assets\Weapons\Weapons\BaseWeapon\BaseWeapon.cs" />
     <Compile Include="Assets\Ships\Player\Playble.cs" />
     <Compile Include="Assets\Scripts\Partical.cs" />
+    <Compile Include="Assets\Ships\Player\Fps.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
