@@ -44,11 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8184b8708a05f844db52c998b680232a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: -4764439288408588162, guid: 19bd9ebee26a39a42b290b74da85dd0d, type: 3}
+  Bullet: {fileID: 3325479879291848379, guid: 1d735fa0adb40e448b1d7a66cb567509, type: 3}
   damageType: 0
   baseDamage: 10
   baseSpeed: 400
-  baseCooldown: 200
+  baseCooldown: 20
 --- !u!212 &-5231278562838167475
 SpriteRenderer:
   m_ObjectHideFlags: 0

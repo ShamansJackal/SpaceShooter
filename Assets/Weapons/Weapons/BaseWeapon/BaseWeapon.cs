@@ -32,7 +32,7 @@ public class BaseWeapon : MonoBehaviour
     protected int bulletSpeed;
     //Cooldown in tickets
     protected int cooldown;
-    protected ParametricFunction function = Traectories.Direct;
+    protected ParametricFunction function = Traectories.Sinusoid;
     //Set up's by weapen owner при получении
     [NonSerialized]
     public List<UnitType> targets;
