@@ -37,11 +37,11 @@ public class Player : MonoBehaviour
 
     private static void ProffilngBullets()
     {
-        if (1.0f / Time.deltaTime > 120)
+        if (1.0f / Time.deltaTime > 60)
             Debug.Log($"{BaseBullet.count} time:{1.0f / Time.deltaTime}");
-        if (1.0f / Time.deltaTime < 120)
+        if (1.0f / Time.deltaTime < 40)
             Debug.LogWarning($"{BaseBullet.count} time:{1.0f / Time.deltaTime}");
-        if (1.0f / Time.deltaTime < 60)
+        if (1.0f / Time.deltaTime < 24)
             Debug.LogError($"{BaseBullet.count} time:{1.0f / Time.deltaTime}");
     }
 }
