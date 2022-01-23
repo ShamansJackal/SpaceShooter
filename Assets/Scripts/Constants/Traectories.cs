@@ -34,8 +34,8 @@ public static class Traectories
 
         Spiral = (float t) =>
         {
-            float x = (float)(Math.Cos(t*0.2) * (0.4*t));
-            float y = (float)(Math.Sin(t*0.2) * (0.4*t));
+            float x = (float)(Math.Cos(t*0.2) * (4*Math.Sqrt(t*0.9)));
+            float y = (float)(Math.Sin(t*0.2) * (4*Math.Sqrt(t*0.9)));
             return new Vector2(x, y);
         };
 
