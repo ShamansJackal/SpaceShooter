@@ -29,7 +29,6 @@ public class BaseBullet : MonoBehaviour
         defaultRotation = transform.rotation;
         body = body != null ? body : GetComponent<Rigidbody2D>();
         animator = animator != null ? animator : GetComponent<Animator>();
-        //body.AddForce(Vector2.right, ForceMode2D.Impulse);
 
         count++; 
     }
@@ -51,7 +50,9 @@ public class BaseBullet : MonoBehaviour
         var curTraectoryValue = traectory(Ticks*SPEED_SCALE*speed);
         Vector2 vector = curTraectoryValue - prevTraectoryValue;
 
-        transform.rotation = defaultRotation * Quaternion.FromToRotation(Vector2.up * vector.magnitude, vector * stoper);
+        //transform.rotation = defaultRotation * Quaternion.FromToRotation(Vector2.up * vector.magnitude, vector * stoper);
+        //transform.rotation = defaultRotation * Rotate(vector);
+        transform.rotation = Rotate(vector);
         vector = defaultRotation * vector;
         body.velocity = vector * 10 * stoper;
 
@@ -60,17 +61,16 @@ public class BaseBullet : MonoBehaviour
         return vector;
     }
 
-    //protected virtual float Rotate2(Vector3 vector)
-    //{
-    //    if (vector.magnitude < Mathf.Epsilon) return 0;
-    //    else if(vector.y > 0) return -Mathf.Asin(vector.x / vector.magnitude) * Mathf.Rad2Deg;
-    //    else return 180+Mathf.Asin(vector.x / vector.magnitude) * Mathf.Rad2Deg;
-    //}
+    protected virtual float VectorToAngle(Vector3 vector)
+    {
+        if (vector.magnitude < Mathf.Epsilon) return 0f;
+        return vector.y > 0 ? -Mathf.Asin(vector.x / vector.magnitude) * Mathf.Rad2Deg : 180f + Mathf.Asin(vector.x / vector.magnitude)*Mathf.Rad2Deg;
+    }
 
-    //protected virtual Quaternion Rotate(Vector3 vector)
-    //{
-    //    return Quaternion.Euler(0,0,Rotate2(vector));
-    //}
+    protected virtual Quaternion Rotate(Vector3 vector)
+    {
+        return Quaternion.Euler(0, 0, defaultRotation.eulerAngles.z + VectorToAngle(vector) * stoper);
+    }
 
     protected virtual void FixedUpdate()
     {
@@ -80,7 +80,8 @@ public class BaseBullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out BaseShip ship) && targets.Contains(ship.type))
+        if (collision.gameObject.tag == "Ship" &&
+            collision.gameObject.TryGetComponent(out BaseShip ship) && targets.Contains(ship.type))
             OnEnemyCollison(ship);
     }
 
@@ -89,8 +90,7 @@ public class BaseBullet : MonoBehaviour
         ship.TakeDamage(damage, damageType);
         Debug.LogWarning("collissd bullet with enamy");
         stoper = 0;
-        body.Sleep();
         animator.SetTrigger("Explose");
-        //Destroy(gameObject);
+        Destroy(gameObject, 1f);
     }
 }

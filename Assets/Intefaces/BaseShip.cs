@@ -46,6 +46,7 @@ public class BaseShip: MonoBehaviour, IDamageble
     {
         Health = maxHealth;
         Shield = maxShield;
+        tag = "Ship";
     }
 
     public virtual int TakeDamage(int Damage, DamageType damageType)
