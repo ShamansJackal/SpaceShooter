@@ -50,9 +50,9 @@ public class BaseBullet : MonoBehaviour
         var curTraectoryValue = traectory(Ticks*SPEED_SCALE*speed);
         Vector2 vector = curTraectoryValue - prevTraectoryValue;
 
-        //transform.rotation = defaultRotation * Quaternion.FromToRotation(Vector2.up * vector.magnitude, vector * stoper);
+        transform.rotation = defaultRotation * Quaternion.FromToRotation(Vector2.up * vector.magnitude, vector * stoper);
         //transform.rotation = defaultRotation * Rotate(vector);
-        transform.rotation = Rotate(vector);
+        //transform.rotation = Rotate(vector);
         vector = defaultRotation * vector;
         body.velocity = vector * 10 * stoper;
 
