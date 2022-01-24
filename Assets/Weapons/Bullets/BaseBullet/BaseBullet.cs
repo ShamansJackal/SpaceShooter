@@ -87,9 +87,11 @@ public class BaseBullet : MonoBehaviour
 
     public virtual void OnEnemyCollison(BaseShip ship)
     {
-        ship.TakeDamage(damage, damageType);
         stoper = 0;
+        transform.parent = ship.transform;
         animator.SetTrigger("Explose");
-        Destroy(gameObject, 1f);
+        ship.TakeDamage(damage, damageType);
+
+        Destroy(gameObject, 0.7f);
     }
 }

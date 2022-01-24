@@ -6,18 +6,24 @@ public class BaseShip: MonoBehaviour, IDamageble
 {
     public UnitType type;
 
+
+    public Rigidbody2D Body;
+
     public List<Sprite> ParticalSprites;
     public Partical partical;
-    public Shield ShieldObj;
 
+    [Header("Colliders")]
     public CircleCollider2D ShieldCollider;
     public Collider2D BaseCollider;
+
+    [Header("Health")]
+    public int maxShield;
+    public int maxHealth;
+    public Shield ShieldObj;
 
     protected int _healt;
     protected int _shield;
 
-    public int maxShield;
-    public int maxHealth;
     public int Health
     {
         get => _healt;

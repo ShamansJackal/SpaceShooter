@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -2613992571995948247}
   - component: {fileID: -6670302487942442664}
   - component: {fileID: -16913101502073077}
+  - component: {fileID: 1224178068907448270}
   m_Layer: 3
   m_Name: BaseShip
   m_TagString: Untagged
@@ -98,13 +99,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  ParticalSprites: []
+  Body: {fileID: 1224178068907448270}
+  ParticalSprites:
+  - {fileID: 6250333313702903402, guid: 69ba304e22f609f4488d8acc774043b7, type: 3}
   partical: {fileID: -8746165292651730397, guid: a66e71ffda3b3de46a6ae35dbc53a166, type: 3}
-  ShieldObj: {fileID: -7890289441222695443, guid: 5d4ab5c81f2ea9b468e77bf1622f67e0, type: 3}
   ShieldCollider: {fileID: -16913101502073077}
   BaseCollider: {fileID: -6670302487942442664}
   maxShield: 100
   maxHealth: 100
+  ShieldObj: {fileID: -7890289441222695443, guid: 5d4ab5c81f2ea9b468e77bf1622f67e0, type: 3}
 --- !u!61 &-6670302487942442664
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -146,4 +149,25 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 3.705
+  m_Radius: 4.2
+--- !u!50 &1224178068907448270
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5072374558611590423}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 1
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 2
+  m_SleepingMode: 2
+  m_CollisionDetection: 1
+  m_Constraints: 0

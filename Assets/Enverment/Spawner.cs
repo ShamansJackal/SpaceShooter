@@ -16,7 +16,8 @@ public class Spawner : MonoBehaviour
     {
         while (true)
         {
-            Instantiate(ship, new Vector3(rnd.NextFloat(-7, 7), rnd.NextFloat(-4, 4)), Quaternion.identity);
+            var shiiiit =Instantiate(ship, new Vector3(rnd.NextFloat(-7, 7), 5.2f), Quaternion.Euler(0,0,180));
+            shiiiit.Body.velocity = new Vector2(0, -0.5f);
             yield return new WaitForSeconds(3f);
         }
     }
