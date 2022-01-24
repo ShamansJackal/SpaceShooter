@@ -13,9 +13,14 @@ public class Fps : MonoBehaviour
 
     public void Update()
     {
+        Print();
+    }
+
+    void Print()
+    {
         var fps = 1 / Time.deltaTime;
-        if (fps > 120f) text.color = Color.white;
-        else if (fps > 60f) text.color = Color.yellow;
+        if (fps > 40) text.color = Color.white;
+        else if (fps > 24) text.color = Color.yellow;
         else text.color = Color.red;
         text.text = $"Bullets: {BaseBullet.count}; fps: {fps:F2}";
     }
@@ -23,11 +28,7 @@ public class Fps : MonoBehaviour
     {
         while (true)
         {
-            var fps = 1 / Time.deltaTime;
-            if (fps > 40f) text.color = Color.white;
-            else if (fps > 24f) text.color = Color.yellow;
-            else text.color = Color.red;
-            text.text = $"Bullets: {BaseBullet.count}; fps: {fps:F2}";
+            Print();
             yield return new WaitForSeconds(0.1f);
         }
     }

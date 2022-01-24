@@ -53,11 +53,13 @@
     <UnityVersion>2020.3.25f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Intefaces\BaseShip.cs" />
+    <Compile Include="Assets\Ships\Base\BaseShip.cs" />
     <Compile Include="Assets\Scripts\Enums\DamageTypes.cs" />
     <Compile Include="Assets\Intefaces\IDamageble.cs" />
+    <Compile Include="Assets\Enverment\Spawner.cs" />
     <Compile Include="Assets\Weapons\Bullets\BaseBullet\BaseBullet.cs" />
-    <Compile Include="Assets\Scripts\Border.cs" />
+    <Compile Include="Assets\Ships\Player\Fps.cs" />
+    <Compile Include="Assets\Enverment\Border.cs" />
     <Compile Include="Assets\Scripts\Enums\UnitsTypes.cs" />
     <Compile Include="Assets\Scripts\Constants\Traectories.cs" />
     <Compile Include="Assets\Scripts\Constants\DefaultStats.cs" />
@@ -65,7 +67,7 @@
     <Compile Include="Assets\Weapons\Weapons\BaseWeapon\BaseWeapon.cs" />
     <Compile Include="Assets\Ships\Player\Playble.cs" />
     <Compile Include="Assets\Scripts\Partical.cs" />
-    <Compile Include="Assets\Ships\Player\Fps.cs" />
+    <Compile Include="Assets\Enverment\Background.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

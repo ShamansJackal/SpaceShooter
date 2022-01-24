@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public BaseWeapon weapon;
+    private float SpeedScale = 0.08f;
 
     private void Start()
     {
@@ -17,22 +18,20 @@ public class Player : MonoBehaviour
         weapon.Shot();
     }
 
-    public void Update()
+    public void FixedUpdate()
     {
+        if (Input.GetKey(KeyCode.Space)) weapon.Shot();
+        if (Input.GetKey(KeyCode.Escape)) Application.Quit();
 
-        if (Input.GetKey(KeyCode.Space))
-            weapon.Shot();
-        if (Input.GetKey(KeyCode.W))
-            transform.position += Vector3.up * 0.02f;
-        if (Input.GetKey(KeyCode.S))
-            transform.position += Vector3.down * 0.02f;
-        if (Input.GetKey(KeyCode.D))
-            transform.rotation *= Quaternion.AngleAxis(0.4f, Vector3.forward);
-        else if (Input.GetKey(KeyCode.A))
-            transform.rotation *= Quaternion.AngleAxis(0.4f, Vector3.back);
-        else transform.position += Vector3.right * (0.02f * Input.GetAxis("Horizontal"));
+        if (Input.GetKey(KeyCode.D)) transform.position += Vector3.right * SpeedScale;
+        if (Input.GetKey(KeyCode.A)) transform.position += Vector3.left * SpeedScale;
+        if (Input.GetKey(KeyCode.S)) transform.position += Vector3.down * SpeedScale;
+        if (Input.GetKey(KeyCode.W)) transform.position += Vector3.up * SpeedScale;
+
+        if (Input.GetKey(KeyCode.LeftArrow)) transform.rotation *= Quaternion.AngleAxis(1f, Vector3.forward);
+        if (Input.GetKey(KeyCode.RightArrow)) transform.rotation *= Quaternion.AngleAxis(1f, Vector3.back);
+
         //ProffilngBullets();
-
     }
 
     private static void ProffilngBullets()
