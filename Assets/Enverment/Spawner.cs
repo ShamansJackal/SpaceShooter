@@ -16,7 +16,7 @@ public class Spawner : MonoBehaviour
     {
         while (true)
         {
-            ship = Instantiate(ship, new Vector3(rnd.NextFloat(-7, 7), rnd.NextFloat(-4, 4)), Quaternion.identity);
+            Instantiate(ship, new Vector3(rnd.NextFloat(-7, 7), rnd.NextFloat(-4, 4)), Quaternion.identity);
             yield return new WaitForSeconds(3f);
         }
     }

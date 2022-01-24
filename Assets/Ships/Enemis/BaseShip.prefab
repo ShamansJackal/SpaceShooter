@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6030871318264105923}
   - component: {fileID: -2613992571995948247}
   - component: {fileID: -6670302487942442664}
+  - component: {fileID: -16913101502073077}
   m_Layer: 3
   m_Name: BaseShip
   m_TagString: Untagged
@@ -73,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: -1298709558340889040, guid: 69ba304e22f609f4488d8acc774043b7, type: 3}
+  m_Sprite: {fileID: 3527525631983412478, guid: 69ba304e22f609f4488d8acc774043b7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,9 +98,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
-  sprites:
-  - {fileID: -3315921892338398885, guid: 69ba304e22f609f4488d8acc774043b7, type: 3}
+  ParticalSprites: []
   partical: {fileID: -8746165292651730397, guid: a66e71ffda3b3de46a6ae35dbc53a166, type: 3}
+  ShieldObj: {fileID: -7890289441222695443, guid: 5d4ab5c81f2ea9b468e77bf1622f67e0, type: 3}
+  ShieldCollider: {fileID: -16913101502073077}
+  BaseCollider: {fileID: -6670302487942442664}
   maxShield: 100
   maxHealth: 100
 --- !u!61 &-6670302487942442664
@@ -128,3 +131,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.1142912, y: 3.2950099}
   m_EdgeRadius: 0
+--- !u!58 &-16913101502073077
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5072374558611590423}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 3.705

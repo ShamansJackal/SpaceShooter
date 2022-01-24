@@ -6,8 +6,12 @@ public class BaseShip: MonoBehaviour, IDamageble
 {
     public UnitType type;
 
-    public List<Sprite> sprites;
+    public List<Sprite> ParticalSprites;
     public Partical partical;
+    public Shield ShieldObj;
+
+    public CircleCollider2D ShieldCollider;
+    public Collider2D BaseCollider;
 
     protected int _healt;
     protected int _shield;
@@ -34,7 +38,7 @@ public class BaseShip: MonoBehaviour, IDamageble
             if (value >= maxShield)
                 _shield = maxShield;
             else if (_shield == 0)
-                Health -= value;
+                Health += value;
             else if (value <= 0)
                 _shield = ShieldDown();
             else
@@ -42,8 +46,12 @@ public class BaseShip: MonoBehaviour, IDamageble
         }
     }
 
+    public bool IsShieldActive => _shield > 0;
+
     public virtual void Start()
     {
+        ShieldObj = Instantiate(ShieldObj, transform);
+        ShieldUp();
         Health = maxHealth;
         Shield = maxShield;
         tag = "Ship";
@@ -51,18 +59,14 @@ public class BaseShip: MonoBehaviour, IDamageble
 
     public virtual int TakeDamage(int Damage, DamageType damageType)
     {
-        if (Shield > 0)
-        {
-            var realDamage = (int)(Damage * DefaultStats.DamagesScale[0, (int)damageType]);
-            Shield -= realDamage;
-            return realDamage;
-        }
+        int realDamage;
+        if (IsShieldActive)
+            realDamage = (int)(Damage * DefaultStats.DamagesScale[0, (int)damageType]);
         else
-        {
-            var realDamage = (int)(Damage * DefaultStats.DamagesScale[1, (int)damageType]);
-            Health -= realDamage;
-            return realDamage;
-        }
+            realDamage = (int)(Damage * DefaultStats.DamagesScale[1, (int)damageType]);
+
+        Shield -= realDamage;
+        return realDamage;
     }
 
     protected int Die()
@@ -70,7 +74,7 @@ public class BaseShip: MonoBehaviour, IDamageble
         for(int i=0;i<3; i++)
         {
             var part = Instantiate(partical, transform.position, transform.rotation);
-            part.GetComponent<SpriteRenderer>().sprite = sprites[0];
+            part.GetComponent<SpriteRenderer>().sprite = ParticalSprites[0];
         }
 
         Destroy(gameObject);
@@ -79,7 +83,19 @@ public class BaseShip: MonoBehaviour, IDamageble
     
     protected virtual int ShieldDown()
     {
+        ShieldObj.ShieldDown();
+        BaseCollider.enabled = true;
+        ShieldCollider.enabled = false;
+
         return 0;
+    }
+
+    protected virtual int ShieldUp()
+    {
+        BaseCollider.enabled = false;
+        ShieldCollider.enabled = true;
+
+        return default;
     }
 
     private void OnDestroy()

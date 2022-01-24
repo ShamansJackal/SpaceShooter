@@ -88,7 +88,6 @@ public class BaseBullet : MonoBehaviour
     public virtual void OnEnemyCollison(BaseShip ship)
     {
         ship.TakeDamage(damage, damageType);
-        Debug.LogWarning("collissd bullet with enamy");
         stoper = 0;
         animator.SetTrigger("Explose");
         Destroy(gameObject, 1f);
