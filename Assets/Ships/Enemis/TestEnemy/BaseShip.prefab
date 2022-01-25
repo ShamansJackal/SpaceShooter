@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7658326254026129186}
-  - component: {fileID: 6030871318264105923}
   - component: {fileID: -2613992571995948247}
+  - component: {fileID: 6030871318264105923}
   - component: {fileID: -6670302487942442664}
   - component: {fileID: -16913101502073077}
   - component: {fileID: 1224178068907448270}
@@ -35,6 +35,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-2613992571995948247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5072374558611590423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e30fa99729fd9f84996d729981d8890b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  Body: {fileID: 1224178068907448270}
+  ParticalSprites:
+  - {fileID: -8170011437660958455, guid: 8ebe8876d6fce9c40a1a98c32ba77863, type: 3}
+  partical: {fileID: -8746165292651730397, guid: a66e71ffda3b3de46a6ae35dbc53a166, type: 3}
+  ShieldCollider: {fileID: -16913101502073077}
+  BaseCollider: {fileID: -6670302487942442664}
+  maxShield: 100
+  maxHealth: 100
+  ShieldObj: {fileID: -7890289441222695443, guid: 5d4ab5c81f2ea9b468e77bf1622f67e0, type: 3}
 --- !u!212 &6030871318264105923
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -75,7 +97,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 3527525631983412478, guid: 69ba304e22f609f4488d8acc774043b7, type: 3}
+  m_Sprite: {fileID: -835154295696425961, guid: 3f2fcd79d568f084591fb910ea4c3e28, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -86,28 +108,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-2613992571995948247
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5072374558611590423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e30fa99729fd9f84996d729981d8890b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
-  Body: {fileID: 1224178068907448270}
-  ParticalSprites:
-  - {fileID: 6250333313702903402, guid: 69ba304e22f609f4488d8acc774043b7, type: 3}
-  partical: {fileID: -8746165292651730397, guid: a66e71ffda3b3de46a6ae35dbc53a166, type: 3}
-  ShieldCollider: {fileID: -16913101502073077}
-  BaseCollider: {fileID: -6670302487942442664}
-  maxShield: 100
-  maxHealth: 100
-  ShieldObj: {fileID: -7890289441222695443, guid: 5d4ab5c81f2ea9b468e77bf1622f67e0, type: 3}
 --- !u!61 &-6670302487942442664
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -115,24 +115,24 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5072374558611590423}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.15652323, y: -0.006521821}
+  m_Offset: {x: -0.038624585, y: -0.006521821}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.4100003, y: 3.803711}
+    oldSize: {x: 9.008798, y: 4.5}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.1142912, y: 3.2950099}
+  m_Size: {x: 2.128161, y: 3.2950099}
   m_EdgeRadius: 0
 --- !u!58 &-16913101502073077
 CircleCollider2D:
