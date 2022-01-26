@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class BaseShip: MonoBehaviour, IDamageble
 {
+    #region Fields
+    [Header("Main")]
     public UnitType type;
-
+    public List<UnitType> Targets;
+    public float Speed;
+    public BaseWeapon Weapon => Weapons[0];
+    public List<BaseWeapon> Weapons;
 
     public Rigidbody2D Body;
 
@@ -20,6 +25,7 @@ public class BaseShip: MonoBehaviour, IDamageble
     public int maxShield;
     public int maxHealth;
     public Shield ShieldObj;
+    #endregion
 
     protected int _healt;
     protected int _shield;
@@ -56,8 +62,15 @@ public class BaseShip: MonoBehaviour, IDamageble
 
     public virtual void Start()
     {
+        for (int i = 0; i < Weapons.Count; i++)
+        {
+            Weapons[i] = Instantiate(Weapons[i], transform);
+            Weapons[i].targets = Targets;
+        }
+
         ShieldObj = Instantiate(ShieldObj, transform);
         ShieldUp();
+
         Health = maxHealth;
         Shield = maxShield;
         tag = "Ship";
@@ -102,6 +115,12 @@ public class BaseShip: MonoBehaviour, IDamageble
         ShieldCollider.enabled = true;
 
         return default;
+    }
+
+    public virtual void Shot()
+    {
+        foreach (var weapon in Weapons)
+            weapon.Shot();
     }
 
     private void OnDestroy()

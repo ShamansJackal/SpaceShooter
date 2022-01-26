@@ -34,7 +34,7 @@ public class BaseWeapon : MonoBehaviour
     protected int cooldown;
     protected ParametricFunction function = Traectories.Sinusoid;
     //Set up's by weapen owner при получении
-    [NonSerialized]
+    [SerializeField]
     public List<UnitType> targets;
     #endregion
 

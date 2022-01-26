@@ -4,23 +4,25 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public BaseWeapon weapon;
+    public BaseShip Ship;
     private float SpeedScale = 0.08f;
+    private bool ControleAllowed = true;
 
     private void Start()
     {
-        weapon = Instantiate(weapon, transform);
-        weapon.targets = new List<UnitType>() { UnitType.Enemy };
+        //Ship = Instantiate(Ship, transform);
     }
 
     private void OnMouseDown()
     {
-        weapon.Shot();
+        Ship.Shot();
     }
 
     public void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.Space)) weapon.Shot();
+        if (!ControleAllowed) return;
+        var SpeedScale = Ship.Speed;
+        if (Input.GetKey(KeyCode.Space)) Ship.Shot();
         if (Input.GetKey(KeyCode.Escape)) Application.Quit();
 
         if (Input.GetKey(KeyCode.D)) transform.position += Vector3.right * SpeedScale;
@@ -42,5 +44,29 @@ public class Player : MonoBehaviour
             Debug.LogWarning($"{BaseBullet.count} time:{1.0f / Time.deltaTime}");
         if (1.0f / Time.deltaTime < 24)
             Debug.LogError($"{BaseBullet.count} time:{1.0f / Time.deltaTime}");
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ship") && collision.gameObject.TryGetComponent(out BaseShip ship))
+        {
+            PushBack(collision.gameObject);
+        }
+            //OnEnemyCollison(ship);
+    }
+
+    private void PushBack(GameObject gameObject)
+    {
+        Vector2 velocity = transform.position - gameObject.transform.position;
+        StartCoroutine(MoveBack(velocity.normalized*20));
+    }
+
+    IEnumerator MoveBack(Vector2 velocity)
+    {
+        Ship.Body.velocity = velocity;
+        ControleAllowed = false;
+        yield return new WaitForSeconds(0.1f);
+        Ship.Body.velocity = Vector2.zero;
+        ControleAllowed = true;
     }
 }
