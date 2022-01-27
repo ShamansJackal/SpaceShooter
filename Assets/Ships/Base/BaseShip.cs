@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BaseShip: MonoBehaviour, IDamageble
 {
+    protected const float timestep = 0.02f;
     #region Fields
     [Header("Main")]
     public UnitType type;
@@ -126,5 +127,15 @@ public class BaseShip: MonoBehaviour, IDamageble
     private void OnDestroy()
     {
         
+    }
+
+    public IEnumerator MoveToPoint(Vector2 point, float time)
+    {
+        float speed = Vector2.Distance(transform.position, point) / time / timestep;
+        while (Vector2.Distance(transform.position, point) > 0.1f)
+        {
+            Vector3.MoveTowards(transform.position, point, speed);
+            yield return new WaitForSeconds(timestep);
+        }
     }
 }
