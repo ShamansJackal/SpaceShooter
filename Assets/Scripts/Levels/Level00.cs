@@ -13,25 +13,19 @@ public class Level00: ILevel
         var ShipR1 = Object.Instantiate(ShipByName("BaseShip"), new Vector2(-3, 5.5f), Quaternion.Euler(0, 0, 180));
         var ShipC0 = Object.Instantiate(ShipByName("BaseShip"), new Vector2(0f, 5.5f), Quaternion.Euler(0, 0, 180));
 
+        ShipC0.velocity = new Vector2(0, -2.75f);
+        ShipL2.velocity = new Vector2(0, -2.75f);
+        ShipR2.velocity = new Vector2(0, -2.75f);
+        ShipL1.velocity = new Vector2(0, -2.75f);
+        ShipR1.velocity = new Vector2(0, -2.75f);
 
-        //StartCoroutine(ShipL1.MoveVertical(-5, 2f));
-        //StartCoroutine(ShipR2.MoveVertical(-5, 2f));
-        //StartCoroutine(ShipR1.MoveVertical(-5, 2f));
-        //StartCoroutine(ShipC0.MoveVertical(-5, 2f));
-        //yield return StartCoroutine(ShipL2.MoveVertical(-5, 2f));
-        //yield return new WaitUntil(2.4f);
-
-        ShipC0.Body.velocity = new Vector2(0, -2.75f);
-        ShipL2.Body.velocity = new Vector2(0, -2.75f);
-        ShipR2.Body.velocity = new Vector2(0, -2.75f);
-        ShipL1.Body.velocity = new Vector2(0, -2.75f);
-        ShipR1.Body.velocity = new Vector2(0, -2.75f);
         yield return new WaitForSeconds(2f);
-        ShipC0.Body.velocity *= 0;
-        ShipL2.Body.velocity *= 0;
-        ShipR2.Body.velocity *= 0;
-        ShipL1.Body.velocity *= 0;
-        ShipR1.Body.velocity *= 0;
+
+        ShipC0.StopMoving();
+        ShipL2.StopMoving();
+        ShipR2.StopMoving();
+        ShipL1.StopMoving();
+        ShipR1.StopMoving();
 
         ShipL2.Shot();
         ShipR2.Shot();

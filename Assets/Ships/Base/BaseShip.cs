@@ -131,4 +131,18 @@ public class BaseShip: MonoBehaviour, IDamageble
         IsDestroyed = true;
         //StopAllCoroutines();
     }
+
+    public Vector2 velocity
+    {
+        get => IsDestroyed ? Vector2.zero : Body.velocity;
+        set
+        {
+            if (!IsDestroyed) Body.velocity = value;
+        } 
+    }
+
+    public void StopMoving()
+    {
+        if (!IsDestroyed) Body.velocity = Vector2.zero;
+    }
 }
