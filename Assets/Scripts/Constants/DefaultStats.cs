@@ -7,9 +7,9 @@ using UnityEngine;
 
 public static class DefaultStats
 {
-    public static int DEFAULT_SPEED = 30;
-    public static int DEFAULT_DAMAGE = 10;
-    public static int DEFAULT_COOLDOWN = 500;
+    public const int DEFAULT_SPEED = 30;
+    public const int DEFAULT_DAMAGE = 10;
+    public const int DEFAULT_COOLDOWN = 500;
 
     public static float[,] DamagesScale = new float[,] { {1.0f, 1.2f, 1.1f}, //SHield damage
                                                          {1.2f, 1.0f, 1.1f} }; //Armor damage

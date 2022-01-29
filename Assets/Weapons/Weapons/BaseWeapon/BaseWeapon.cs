@@ -21,8 +21,7 @@ public class BaseWeapon : MonoBehaviour
     #endregion
 
     #region Scale factors
-    //div by 20 for convert to ticks
-    public double CooldownFactor { set => cooldown = (int)(value * baseCooldown / 20); }
+    public double CooldownFactor { set => cooldown = (int)(value * baseCooldown); }
     public float BulletsSpeedFactor { set => bulletSpeed = (int)(value * baseSpeed); }
     public float BulletsDamageFactor { set => damage = (int)(value * baseDamage); }
     #endregion
@@ -34,29 +33,24 @@ public class BaseWeapon : MonoBehaviour
     protected int cooldown;
     protected ParametricFunction function = Traectories.Sinusoid;
     //Set up's by weapen owner при получении
-    [SerializeField]
     public List<UnitType> targets;
     #endregion
 
-    private int ticks = 0;
-    private int curTick = 0;
-
-    protected bool IsReady => ticks - curTick >= cooldown;
+    protected bool IsReady = true;
 
     private void Start()
     {
         damage = baseDamage;
         bulletSpeed = baseSpeed;
-        cooldown = baseCooldown / 20;
+        cooldown = baseCooldown;
         damageType = Bullet.damageType;
-
-        //Чтобы можно было сделать выстрел при получении оружия
-        curTick -= cooldown;
     }
 
-    protected void StartCooldown()
+    protected IEnumerator StartCooldown()
     {
-        curTick = ticks;
+        IsReady = false;
+        yield return new WaitForSeconds(cooldown*0.001f);
+        IsReady = true;
     }
 
     public virtual void Shot()
@@ -67,7 +61,7 @@ public class BaseWeapon : MonoBehaviour
             SpawnBullet(Quaternion.Euler(0, -180, 0));
             //SpawnBullet(Quaternion.Euler(0, 0, -30));
             //SpawnBullet(Quaternion.Euler(0, 0, 30));
-            StartCooldown();
+            StartCoroutine(StartCooldown());
         }
     }
 
@@ -82,10 +76,5 @@ public class BaseWeapon : MonoBehaviour
     protected void SpawnBullet()
     {
         SpawnBullet(Quaternion.identity);
-    }
-
-    private void FixedUpdate()
-    {
-        ticks++;
     }
 }
