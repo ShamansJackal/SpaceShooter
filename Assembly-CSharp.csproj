@@ -73,6 +73,7 @@
     <Compile Include="Assets\Ships\Player\Playble.cs" />
     <Compile Include="Assets\Ships\Particals\Partical.cs" />
     <Compile Include="Assets\Weapons\Weapons\Chaingun\Chaingun.cs" />
+    <Compile Include="Assets\Ships\Player\HealthText.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
