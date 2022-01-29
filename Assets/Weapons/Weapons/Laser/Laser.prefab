@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4557294079477423654
+--- !u!1 &3003625340460706980
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2286218364088541566}
-  - component: {fileID: -8792736466095257825}
+  - component: {fileID: 1138844119222465196}
+  - component: {fileID: -8929697725028792222}
   m_Layer: 0
-  m_Name: Chaingun
+  m_Name: Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2286218364088541566
+--- !u!4 &1138844119222465196
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4557294079477423654}
+  m_GameObject: {fileID: 3003625340460706980}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -31,21 +31,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-8792736466095257825
+--- !u!114 &-8929697725028792222
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4557294079477423654}
+  m_GameObject: {fileID: 3003625340460706980}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d86847d74e248c347854a27cb8b7452a, type: 3}
+  m_Script: {fileID: 11500000, guid: dddce5590eeddd449ad9b893739dc3d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: -4764439288408588162, guid: 19bd9ebee26a39a42b290b74da85dd0d, type: 3}
+  Bullet: {fileID: 5605026467934068852, guid: ad229af534f06dc4d88019f2e4b43290, type: 3}
   damageType: 1
-  baseDamage: 1
+  baseDamage: 2
   baseSpeed: 600
-  baseCooldown: 500
+  baseCooldown: 1200
   targets: 

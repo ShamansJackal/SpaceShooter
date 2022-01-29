@@ -87,6 +87,8 @@ public class BaseShip: MonoBehaviour, IDamageble
         else
             realDamage = (int)(Damage * DefaultStats.DamagesScale[1, (int)damageType]);
 
+        if(realDamage <= 0) return 0;
+
         var text = Instantiate(TextObj, transform.position, Quaternion.identity);
         text.text.text = realDamage.ToString();
 

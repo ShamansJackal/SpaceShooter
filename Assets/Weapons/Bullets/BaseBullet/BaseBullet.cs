@@ -25,7 +25,7 @@ public class BaseBullet : MonoBehaviour
     public DamageType damageType = DamageType.Balistic;
     public static int count = 0;
 
-    private void Start()
+    protected virtual void Start()
     {
         defaultRotation = transform.rotation;
         body = body != null ? body : GetComponent<Rigidbody2D>();
@@ -80,7 +80,7 @@ public class BaseBullet : MonoBehaviour
         Ticks++;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Ship" &&
             collision.gameObject.TryGetComponent(out BaseShip ship) && targets.Contains(ship.type))
