@@ -60,6 +60,7 @@ MonoBehaviour:
   partical: {fileID: -8746165292651730397, guid: a66e71ffda3b3de46a6ae35dbc53a166, type: 3}
   ShieldCollider: {fileID: -16913101502073077}
   BaseCollider: {fileID: -6670302487942442664}
+  TextObj: {fileID: 1964156136208562156, guid: 34ec014c01098d949a1964b724eefb42, type: 3}
   maxShield: 100
   maxHealth: 100
   ShieldObj: {fileID: -7890289441222695443, guid: 5d4ab5c81f2ea9b468e77bf1622f67e0, type: 3}

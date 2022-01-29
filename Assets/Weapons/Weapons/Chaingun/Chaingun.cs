@@ -13,7 +13,6 @@ public class Chaingun : BaseWeapon
         base.Start();
     }
 
-    // Update is called once per frame
     public override void Shot()
     {
         if (IsReady)

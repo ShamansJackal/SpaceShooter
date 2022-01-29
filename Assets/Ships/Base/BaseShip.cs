@@ -22,6 +22,7 @@ public class BaseShip: MonoBehaviour, IDamageble
     [Header("Colliders")]
     public CircleCollider2D ShieldCollider;
     public Collider2D BaseCollider;
+    public DamageText TextObj;
 
     [Header("Health")]
     public int maxShield;
@@ -85,6 +86,9 @@ public class BaseShip: MonoBehaviour, IDamageble
             realDamage = (int)(Damage * DefaultStats.DamagesScale[0, (int)damageType]);
         else
             realDamage = (int)(Damage * DefaultStats.DamagesScale[1, (int)damageType]);
+
+        var text = Instantiate(TextObj, transform.position, Quaternion.identity);
+        text.text.text = realDamage.ToString();
 
         Shield -= realDamage;
         return realDamage;
