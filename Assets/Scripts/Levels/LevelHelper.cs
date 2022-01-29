@@ -1,18 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class LevelHelper : MonoBehaviour
 {
-    public List<BaseShip> Mobs;
+    public static List<BaseShip> Mobs;
+    public List<BaseShip> MobsSSS;
+    public static BaseShip ShipByName(string name) => Mobs.Single(x => x.name == name);
     public ILevel level;
 
     private void Start()
     {
+        Mobs = MobsSSS;
+        level = gameObject.AddComponent<Level00>();
         StartCoroutine(level.StartLevel());
     }
-
-    public static
 
 }
 

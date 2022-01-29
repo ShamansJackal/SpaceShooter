@@ -9,13 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8439601137551852032}
-  - component: {fileID: 4040670055560596561}
+  - component: {fileID: 8845810142357816148}
   m_Layer: 0
-  m_Name: Level00
+  m_Name: LevelSelector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &8439601137551852032
 Transform:
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4040670055560596561
+--- !u!114 &8845810142357816148
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,6 +40,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 3258447845851315251}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 797638252e47daa4284a90109f75fe72, type: 3}
+  m_Script: {fileID: 11500000, guid: 255b7af4a41429546938462506cf3704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MobsSSS:
+  - {fileID: -2613992571995948247, guid: 82c0d57336e703544b7c947da0b396ed, type: 3}

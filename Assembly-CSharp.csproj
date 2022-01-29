@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -53,9 +53,13 @@
     <UnityVersion>2020.3.25f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Visual Studio Tools for Unity\Analyzers\Microsoft.Unity.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Assets\Ships\Base\BaseShip.cs" />
     <Compile Include="Assets\Scripts\Enums\DamageTypes.cs" />
     <Compile Include="Assets\Enverment\Background.cs" />
+    <Compile Include="Assets\Scripts\Levels\ILevel.cs" />
     <Compile Include="Assets\Intefaces\IDamageble.cs" />
     <Compile Include="Assets\Scripts\Levels\Level00.cs" />
     <Compile Include="Assets\Enverment\Spawner.cs" />
@@ -65,13 +69,12 @@
     <Compile Include="Assets\Enverment\Border.cs" />
     <Compile Include="Assets\Scripts\Enums\UnitsTypes.cs" />
     <Compile Include="Assets\Scripts\Constants\Traectories.cs" />
+    <Compile Include="Assets\Scripts\Levels\LevelHelper.cs" />
     <Compile Include="Assets\Scripts\Constants\DefaultStats.cs" />
     <Compile Include="Assets\Ships\Player\Player.cs" />
     <Compile Include="Assets\Weapons\Weapons\BaseWeapon\BaseWeapon.cs" />
     <Compile Include="Assets\Ships\Player\Playble.cs" />
     <Compile Include="Assets\Ships\Particals\Partical.cs" />
-    <Compile Include="Assets\Scripts\Levels\LevelHelper.cs" />
-    <Compile Include="Assets\Scripts\Levels\ILevel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
