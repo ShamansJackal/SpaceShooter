@@ -52,7 +52,6 @@ public class BaseWeapon : MonoBehaviour
 
         //Чтобы можно было сделать выстрел при получении оружия
         curTick -= cooldown;
-        Shot();
     }
 
     protected void StartCooldown()

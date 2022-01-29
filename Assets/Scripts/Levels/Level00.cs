@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using static LevelHelper;
 
-public class Level00: MonoBehaviour, ILevel
+public class Level00: ILevel
 {
     public IEnumerator StartLevel()
     {
-        var ShipL2 = Instantiate(ShipByName("BaseShip"), new Vector2(6f, 5.5f), Quaternion.Euler(0, 0, 180));
-        var ShipR2 = Instantiate(ShipByName("BaseShip"), new Vector2(-6, 5.5f), Quaternion.Euler(0, 0, 180));
-        var ShipL1 = Instantiate(ShipByName("BaseShip"), new Vector2(3f, 5.5f), Quaternion.Euler(0, 0, 180));
-        var ShipR1 = Instantiate(ShipByName("BaseShip"), new Vector2(-3, 5.5f), Quaternion.Euler(0, 0, 180));
-        var ShipC0 = Instantiate(ShipByName("BaseShip"), new Vector2(0f, 5.5f), Quaternion.Euler(0, 0, 180));
+        var ShipL2 = Object.Instantiate(ShipByName("BaseShip"), new Vector2(6f, 5.5f), Quaternion.Euler(0, 0, 180));
+        var ShipR2 = Object.Instantiate(ShipByName("BaseShip"), new Vector2(-6, 5.5f), Quaternion.Euler(0, 0, 180));
+        var ShipL1 = Object.Instantiate(ShipByName("BaseShip"), new Vector2(3f, 5.5f), Quaternion.Euler(0, 0, 180));
+        var ShipR1 = Object.Instantiate(ShipByName("BaseShip"), new Vector2(-3, 5.5f), Quaternion.Euler(0, 0, 180));
+        var ShipC0 = Object.Instantiate(ShipByName("BaseShip"), new Vector2(0f, 5.5f), Quaternion.Euler(0, 0, 180));
 
 
         //StartCoroutine(ShipL1.MoveVertical(-5, 2f));
@@ -44,10 +44,7 @@ public class Level00: MonoBehaviour, ILevel
         ShipC0.Shot();
         yield return new WaitForSeconds(0.5f);
 
-       // StartCoroutine(ShipC0.MoveVertical(6.2f, 2f));
-        yield return new WaitForSeconds(1.5f);
-        Debug.Log("wait");
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitUntil(() => ShipC0.IsDestroyed);
         Debug.Log("fin");
 
         //ShipL2.MoveHorizontal(5f, 2f);

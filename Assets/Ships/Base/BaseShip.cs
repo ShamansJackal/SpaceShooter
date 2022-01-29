@@ -5,7 +5,7 @@ using UnityEngine;
 public class BaseShip: MonoBehaviour, IDamageble
 {
     protected const float timestep = 0.02f;
-    protected bool IsDistored = false;
+    public bool IsDestroyed { get; protected set; } = false;
     #region Fields
     [Header("Main")]
     public UnitType type;
@@ -128,7 +128,7 @@ public class BaseShip: MonoBehaviour, IDamageble
     private void OnDestroy()
     {
         Weapons = new List<BaseWeapon>();
-        IsDistored = true;
+        IsDestroyed = true;
         //StopAllCoroutines();
     }
 }
