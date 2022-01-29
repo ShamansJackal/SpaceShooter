@@ -12,6 +12,7 @@ public class BaseBullet : MonoBehaviour
     public List<UnitType> targets;
     public Rigidbody2D body;
     public Animator animator;
+    public TrailRenderer trail;
 
     private ParametricFunction traectory = Traectories.Sinusoid;
     private Vector2 prevTraectoryValue = new Vector2(0, 0);
@@ -29,6 +30,7 @@ public class BaseBullet : MonoBehaviour
         defaultRotation = transform.rotation;
         body = body != null ? body : GetComponent<Rigidbody2D>();
         animator = animator != null ? animator : GetComponent<Animator>();
+        trail = GetComponent<TrailRenderer>();
 
         count++; 
     }
@@ -87,6 +89,7 @@ public class BaseBullet : MonoBehaviour
 
     public virtual void OnEnemyCollison(BaseShip ship)
     {
+        trail.enabled = false;
         stoper = 0;
         transform.parent = ship.transform;
         animator.SetTrigger("Explose");

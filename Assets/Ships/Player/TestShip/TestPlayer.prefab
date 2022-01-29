@@ -54,7 +54,7 @@ MonoBehaviour:
   Targets: 00000000
   Speed: 0.08
   Weapons:
-  - {fileID: -1533094498414638833, guid: 8da188bc35d91a541b25feb5d126e58b, type: 3}
+  - {fileID: -8792736466095257825, guid: 7049781b6ec13044598384123aaf2524, type: 3}
   Body: {fileID: 7104234141580136194}
   ParticalSprites:
   - {fileID: -8170011437660958455, guid: 8ebe8876d6fce9c40a1a98c32ba77863, type: 3}

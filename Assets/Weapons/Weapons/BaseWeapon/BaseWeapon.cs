@@ -38,7 +38,7 @@ public class BaseWeapon : MonoBehaviour
 
     protected bool IsReady = true;
 
-    private void Start()
+    protected virtual void Start()
     {
         damage = baseDamage;
         bulletSpeed = baseSpeed;
