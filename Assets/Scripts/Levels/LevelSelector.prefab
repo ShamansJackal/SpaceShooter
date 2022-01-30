@@ -45,3 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MobsSSS:
   - {fileID: -2613992571995948247, guid: 82c0d57336e703544b7c947da0b396ed, type: 3}
+  - {fileID: 4958427211868692027, guid: 5b065594fd8e044459bcbab6b495b984, type: 3}

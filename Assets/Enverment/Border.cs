@@ -18,8 +18,9 @@ public class Border : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.layer == gameObject.layer)
         //Debug.LogWarning(collision.gameObject.name+" "+collision.gameObject.GetInstanceID()+" destroey");
-        Destroy(collision.gameObject);
+            Destroy(collision.gameObject);
     }
 
 }

@@ -20,9 +20,10 @@ public class BaseShip: MonoBehaviour, IDamageble
     public Partical partical;
 
     [Header("Colliders")]
-    public CircleCollider2D ShieldCollider;
+    public Collider2D ShieldCollider;
     public Collider2D BaseCollider;
     public DamageText TextObj;
+    public Animator Animator;
 
     [Header("Health")]
     public int maxShield;
@@ -39,7 +40,7 @@ public class BaseShip: MonoBehaviour, IDamageble
         set {
             if (value >= maxHealth)
                 _healt = maxHealth;
-            else if (value <= 0)
+            else if (value == 0)
                 _healt = Die();
             else
                 _healt = value;
@@ -52,7 +53,7 @@ public class BaseShip: MonoBehaviour, IDamageble
         set {
             if (value >= maxShield)
                 _shield = maxShield;
-            else if (_shield == 0)
+            else if (_shield <= 0)
                 Health += value;
             else if (value <= 0)
                 _shield = ShieldDown();
@@ -71,11 +72,15 @@ public class BaseShip: MonoBehaviour, IDamageble
             Weapons[i].targets = Targets;
         }
 
-        ShieldObj = Instantiate(ShieldObj, transform);
-        ShieldUp();
-
         Health = maxHealth;
         Shield = maxShield;
+
+        if (IsShieldActive)
+        {
+            ShieldObj = Instantiate(ShieldObj, transform);
+            ShieldUp();
+        }
+
         tag = "Ship";
     }
 

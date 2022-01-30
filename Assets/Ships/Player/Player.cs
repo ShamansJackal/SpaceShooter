@@ -59,6 +59,7 @@ public class Player : MonoBehaviour
     {
         Vector2 velocity = transform.position - gameObject.transform.position;
         StartCoroutine(MoveBack(velocity.normalized*20));
+        StartCoroutine(Invicteble());
     }
 
     IEnumerator MoveBack(Vector2 velocity)
@@ -68,5 +69,16 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         Ship.Body.velocity = Vector2.zero;
         ControleAllowed = true;
+    }
+
+    IEnumerator Invicteble()
+    {
+        Ship.BaseCollider.enabled = false;
+        Ship.ShieldCollider.enabled = false;
+        Ship.Animator.SetBool("Invicteble", true);
+        yield return new WaitForSeconds(0.5f);
+        Ship.BaseCollider.enabled = true;
+        Ship.ShieldCollider.enabled = true;
+        Ship.Animator.SetBool("Invicteble", false);
     }
 }

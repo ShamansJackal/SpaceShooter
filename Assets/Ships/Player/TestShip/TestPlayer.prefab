@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -1624956640584920483}
   - component: {fileID: 1436853089144728286}
   - component: {fileID: 7104234141580136194}
+  - component: {fileID: -2002985022000127364}
   - component: {fileID: -1006641578340043502}
   m_Layer: 0
   m_Name: TestPlayer
@@ -62,6 +63,7 @@ MonoBehaviour:
   ShieldCollider: {fileID: 1436853089144728286}
   BaseCollider: {fileID: -1624956640584920483}
   TextObj: {fileID: 1964156136208562156, guid: 34ec014c01098d949a1964b724eefb42, type: 3}
+  Animator: {fileID: -2002985022000127364}
   maxShield: 100
   maxHealth: 100
   ShieldObj: {fileID: 4803622006829694347, guid: d7712263557a1a34880f281eb612aeff, type: 3}
@@ -179,6 +181,25 @@ Rigidbody2D:
   m_SleepingMode: 2
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!95 &-2002985022000127364
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5639765350136716929}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 86d6fffa90d804546ac283da45a861f5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &-1006641578340043502
 MonoBehaviour:
   m_ObjectHideFlags: 0
