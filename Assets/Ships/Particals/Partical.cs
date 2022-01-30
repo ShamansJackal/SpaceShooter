@@ -11,7 +11,7 @@ public class Partical : MonoBehaviour
         animator = animator != null ? animator : GetComponent<Animator>();
         body = body != null ? body : GetComponent<Rigidbody2D>();
 
-        Vector2 vector = new Vector2(Random.value, Random.value).normalized;
+        Vector2 vector = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
         Vector3 rotation = new Vector3(0, 0, Random.value) * 360;
 
         transform.rotation = Quaternion.Euler(rotation);
@@ -25,6 +25,6 @@ public class Partical : MonoBehaviour
     }
     public virtual void Die()
     {
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }

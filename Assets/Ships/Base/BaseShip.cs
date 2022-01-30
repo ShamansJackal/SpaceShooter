@@ -12,7 +12,21 @@ public class BaseShip: MonoBehaviour, IDamageble
     public List<UnitType> Targets;
     public float Speed;
     public BaseWeapon Weapon => Weapons[0];
-    public List<BaseWeapon> Weapons;
+
+    [SerializeField]
+    protected List<BaseWeapon> _weapons;
+    public List<BaseWeapon> Weapons {
+        get => _weapons;
+        set
+        {
+            _weapons = new List<BaseWeapon>();
+            for (int i = 0; i < value.Count; i++)
+            {
+                _weapons.Add(Instantiate(value[i], transform));
+                _weapons[_weapons.Count-1].targets = Targets;
+            }
+        }
+    }
 
     public Rigidbody2D Body;
 
@@ -40,7 +54,7 @@ public class BaseShip: MonoBehaviour, IDamageble
         set {
             if (value >= maxHealth)
                 _healt = maxHealth;
-            else if (value == 0)
+            else if (value <= 0)
                 _healt = Die();
             else
                 _healt = value;
@@ -66,11 +80,7 @@ public class BaseShip: MonoBehaviour, IDamageble
 
     public virtual void Start()
     {
-        for (int i = 0; i < Weapons.Count; i++)
-        {
-            Weapons[i] = Instantiate(Weapons[i], transform);
-            Weapons[i].targets = Targets;
-        }
+        Weapons = _weapons;
 
         Health = maxHealth;
         Shield = maxShield;
@@ -95,7 +105,7 @@ public class BaseShip: MonoBehaviour, IDamageble
         if(realDamage <= 0) return 0;
 
         var text = Instantiate(TextObj, transform.position, Quaternion.identity);
-        text.text.text = realDamage.ToString();
+        text.text.text = ".";
 
         Shield -= realDamage;
         return realDamage;
@@ -103,7 +113,7 @@ public class BaseShip: MonoBehaviour, IDamageble
 
     protected int Die()
     {
-        for(int i=0;i<3; i++)
+        for(int i=0;i<Random.Range(3,6); i++)
         {
             var part = Instantiate(partical, transform.position, transform.rotation);
             part.GetComponent<SpriteRenderer>().sprite = ParticalSprites[0];

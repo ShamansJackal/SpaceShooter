@@ -53,6 +53,7 @@ MonoBehaviour:
   targets: 
   body: {fileID: 4666382979513457890}
   animator: {fileID: -5733021246467752062}
+  trail: {fileID: -7450476762877016805}
   damageType: 0
 --- !u!212 &8063473682972847756
 SpriteRenderer:
@@ -242,7 +243,7 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0, b: 0, a: 1}
+      key0: {r: 1, g: 0.37061155, b: 0, a: 1}
       key1: {r: 1, g: 0, b: 0, a: 0}
       key2: {r: 1, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}

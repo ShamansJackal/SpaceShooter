@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: -4764439288408588162, guid: 19bd9ebee26a39a42b290b74da85dd0d, type: 3}
-  damageType: 1
-  baseDamage: 1
+  damageType: 0
+  baseDamage: 3
   baseSpeed: 600
   baseCooldown: 500
   targets: 

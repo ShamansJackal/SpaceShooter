@@ -5,6 +5,10 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public BaseShip Ship;
+
+    public List<BaseWeapon> weapons1;
+    public List<BaseWeapon> weapons2;
+
     private float SpeedScale = 0.08f;
     private bool ControleAllowed = true;
 
@@ -20,6 +24,9 @@ public class Player : MonoBehaviour
 
     public void FixedUpdate()
     {
+        if (Input.GetKey(KeyCode.Alpha1)) Ship.Weapons = weapons1;
+        if (Input.GetKey(KeyCode.Alpha2)) Ship.Weapons = weapons2;
+
         if (!ControleAllowed) return;
         var SpeedScale = Ship.Speed;
         if (Input.GetKey(KeyCode.Space)) Ship.Shot();
@@ -30,8 +37,8 @@ public class Player : MonoBehaviour
         if (Input.GetKey(KeyCode.S)) transform.position += Vector3.down * SpeedScale;
         if (Input.GetKey(KeyCode.W)) transform.position += Vector3.up * SpeedScale;
 
-        if (Input.GetKey(KeyCode.LeftArrow)) transform.rotation *= Quaternion.AngleAxis(1f, Vector3.forward);
-        if (Input.GetKey(KeyCode.RightArrow)) transform.rotation *= Quaternion.AngleAxis(1f, Vector3.back);
+        if (Input.GetKey(KeyCode.LeftArrow)) transform.rotation *= Quaternion.AngleAxis(3f, Vector3.forward);
+        if (Input.GetKey(KeyCode.RightArrow)) transform.rotation *= Quaternion.AngleAxis(3f, Vector3.back);
 
         //ProffilngBullets();
     }

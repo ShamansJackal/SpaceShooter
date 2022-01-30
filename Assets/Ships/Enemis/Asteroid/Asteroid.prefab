@@ -61,7 +61,7 @@ MonoBehaviour:
   TextObj: {fileID: 1964156136208562156, guid: 34ec014c01098d949a1964b724eefb42, type: 3}
   Animator: {fileID: 5463472891306596578}
   maxShield: 0
-  maxHealth: 100
+  maxHealth: 40
   ShieldObj: {fileID: -7890289441222695443, guid: 5d4ab5c81f2ea9b468e77bf1622f67e0, type: 3}
 --- !u!50 &-1426429328899374496
 Rigidbody2D:
