@@ -52,7 +52,7 @@ MonoBehaviour:
   type: 0
   Targets: 01000000
   Speed: 0
-  Weapons:
+  _weapons:
   - {fileID: -1533094498414638833, guid: 8da188bc35d91a541b25feb5d126e58b, type: 3}
   Body: {fileID: 1224178068907448270}
   ParticalSprites:
@@ -61,6 +61,7 @@ MonoBehaviour:
   ShieldCollider: {fileID: -16913101502073077}
   BaseCollider: {fileID: -6670302487942442664}
   TextObj: {fileID: 1964156136208562156, guid: 34ec014c01098d949a1964b724eefb42, type: 3}
+  Animator: {fileID: 0}
   maxShield: 100
   maxHealth: 100
   ShieldObj: {fileID: -7890289441222695443, guid: 5d4ab5c81f2ea9b468e77bf1622f67e0, type: 3}

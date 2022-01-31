@@ -30,9 +30,8 @@ public class BaseBullet : MonoBehaviour
         defaultRotation = transform.rotation;
         body = body != null ? body : GetComponent<Rigidbody2D>();
         animator = animator != null ? animator : GetComponent<Animator>();
-        trail = GetComponent<TrailRenderer>();
 
-        count++; 
+        count++;
     }
 
     public void SetUpStats(int damage, int speed, List<UnitType> targets)
@@ -82,9 +81,12 @@ public class BaseBullet : MonoBehaviour
 
     protected virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ship" &&
-            collision.gameObject.TryGetComponent(out BaseShip ship) && targets.Contains(ship.type))
-            OnEnemyCollison(ship);
+        if (collision.gameObject.CompareTag("Ship"))
+        {
+            var ship = collision.gameObject.GetComponent<BaseShip>();
+            if (targets.Contains(ship.type)) OnEnemyCollison(ship);
+        }
+
     }
 
     public virtual void OnEnemyCollison(BaseShip ship)

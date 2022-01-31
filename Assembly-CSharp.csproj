@@ -8,7 +8,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{D8781776-1975-90A7-CA64-508BB06A8DC2}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -77,7 +78,7 @@
     <Compile Include="Assets\Weapons\Weapons\BaseWeapon\BaseWeapon.cs" />
     <Compile Include="Assets\Ships\Player\Playble.cs" />
     <Compile Include="Assets\Ships\Particals\Partical.cs" />
-    <Compile Include="Assets\Scripts\Levels\level99.cs" />
+    <Compile Include="Assets\Scripts\Levels\Level99.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

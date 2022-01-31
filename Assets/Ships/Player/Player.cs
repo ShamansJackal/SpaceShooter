@@ -84,8 +84,9 @@ public class Player : MonoBehaviour
         Ship.ShieldCollider.enabled = false;
         Ship.Animator.SetBool("Invicteble", true);
         yield return new WaitForSeconds(0.5f);
-        Ship.BaseCollider.enabled = true;
-        Ship.ShieldCollider.enabled = true;
+
+        if(Ship.IsShieldActive) Ship.ShieldCollider.enabled = true;
+        else Ship.BaseCollider.enabled = true;
         Ship.Animator.SetBool("Invicteble", false);
     }
 }

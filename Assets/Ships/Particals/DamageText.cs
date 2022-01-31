@@ -13,6 +13,6 @@ public class DamageText : MonoBehaviour
     {
         mesh.sortingOrder = OrderInLayer;
         body.AddForce(new Vector2(Random.Range(-0.5f, 0.5f), Random.Range(0.2f, 0.5f)) *7, ForceMode2D.Impulse);
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, 1.5f);
     }
 }

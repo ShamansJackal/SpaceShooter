@@ -113,7 +113,7 @@ public class BaseShip: MonoBehaviour, IDamageble
 
     protected int Die()
     {
-        for(int i=0;i<Random.Range(3,6); i++)
+        for(int i=0;i<Random.Range(0,0); i++)
         {
             var part = Instantiate(partical, transform.position, transform.rotation);
             part.GetComponent<SpriteRenderer>().sprite = ParticalSprites[0];
