@@ -13,7 +13,7 @@ public class LevelHelper : MonoBehaviour
     private void Start()
     {
         Mobs = MobsSSS;
-        level = new Level00();
+        level = new Level99();
         StartCoroutine(level.StartLevel());
     }
 
