@@ -7,12 +7,24 @@ using UnityEngine;
 
 public static class DefaultStats
 {
-    public const int DEFAULT_SPEED = 30;
-    public const int DEFAULT_DAMAGE = 10;
-    public const int DEFAULT_COOLDOWN = 500;
+    public static Rigidbody2D rigidbody2D;
+    public static CollisionDetectionMode2D collisionDetectionMode = CollisionDetectionMode2D.Continuous;
 
-    public static float[,] DamagesScale = new float[,] { {1.0f, 1.2f, 1.1f}, //SHield damage
-                                                         {1.2f, 1.0f, 1.1f} }; //Armor damage
+    public const int DefaultSpeed = 300;
+    public const int DefaultDamage = 10;
+    public const int DefaultCooldown = 500;
+
+    public static Dictionary<DamageType, float> ShieldScale = new Dictionary<DamageType, float> {
+        { DamageType.Balistic, 1.2f  },
+        { DamageType.Laser,    1.0f  },
+        { DamageType.Rocket,   1.1f  }
+    };
+
+    public static Dictionary<DamageType, float> ArmorScale = new Dictionary<DamageType, float> {
+        { DamageType.Balistic, 1.0f  },
+        { DamageType.Laser,    1.2f  },
+        { DamageType.Rocket,   1.1f  }
+    };
 }
 
 

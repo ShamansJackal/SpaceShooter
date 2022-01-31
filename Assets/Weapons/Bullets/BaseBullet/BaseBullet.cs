@@ -7,8 +7,8 @@ public class BaseBullet : MonoBehaviour
 {
     const float SPEED_SCALE = 0.001f; 
 
-    public int damage = DefaultStats.DEFAULT_DAMAGE;
-    public int speed = DefaultStats.DEFAULT_SPEED;
+    public int damage = DefaultStats.DefaultDamage;
+    public int speed = DefaultStats.DefaultSpeed;
     public List<UnitType> targets;
     public Rigidbody2D body;
     public Animator animator;
@@ -55,7 +55,7 @@ public class BaseBullet : MonoBehaviour
         //transform.rotation = defaultRotation * Rotate(vector);
         //transform.rotation = Rotate(vector);
         vector = defaultRotation * vector;
-        body.velocity = vector * 10 * stoper;
+        body.velocity = 10 * stoper * vector;
 
         prevMovementVector = vector;
         prevTraectoryValue = curTraectoryValue;

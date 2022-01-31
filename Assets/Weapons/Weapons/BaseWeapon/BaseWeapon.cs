@@ -12,12 +12,12 @@ public class BaseWeapon : MonoBehaviour
 
     //Default weapon stats stuff
     [SerializeField]
-    protected int baseDamage = DefaultStats.DEFAULT_DAMAGE;
+    protected int baseDamage = DefaultStats.DefaultDamage;
     [SerializeField]
-    protected int baseSpeed = DefaultStats.DEFAULT_SPEED;
+    protected int baseSpeed = DefaultStats.DefaultSpeed;
     [SerializeField]
     //in miliseconds
-    protected int baseCooldown = DefaultStats.DEFAULT_COOLDOWN;
+    protected int baseCooldown = DefaultStats.DefaultCooldown;
     #endregion
 
     #region Scale factors

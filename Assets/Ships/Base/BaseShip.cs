@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static DefaultStats;
 
 public class BaseShip: MonoBehaviour, IDamageble
 {
@@ -81,6 +82,7 @@ public class BaseShip: MonoBehaviour, IDamageble
     public virtual void Start()
     {
         Weapons = _weapons;
+        Body.collisionDetectionMode = collisionDetectionMode;
 
         Health = maxHealth;
         Shield = maxShield;
@@ -97,10 +99,8 @@ public class BaseShip: MonoBehaviour, IDamageble
     public virtual int TakeDamage(int Damage, DamageType damageType)
     {
         int realDamage;
-        if (IsShieldActive)
-            realDamage = (int)(Damage * DefaultStats.DamagesScale[0, (int)damageType]);
-        else
-            realDamage = (int)(Damage * DefaultStats.DamagesScale[1, (int)damageType]);
+        if (IsShieldActive) realDamage = (int)(Damage * ShieldScale[damageType]);
+        else realDamage = (int)(Damage *  ArmorScale[damageType]);
 
         if(realDamage <= 0) return 0;
 
@@ -113,7 +113,7 @@ public class BaseShip: MonoBehaviour, IDamageble
 
     protected int Die()
     {
-        for(int i=0;i<Random.Range(0,0); i++)
+        for(int i=0;i<Random.Range(0,6); i++)
         {
             var part = Instantiate(partical, transform.position, transform.rotation);
             part.GetComponent<SpriteRenderer>().sprite = ParticalSprites[0];
