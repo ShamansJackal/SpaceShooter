@@ -4,36 +4,37 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static DefaultStats;
+
 public class BaseWeapon : MonoBehaviour
 {
+    #region Stats
+    protected int damage;
+    protected int bulletSpeed;
+    protected int cooldown;
+    protected ParametricFunction function = Traectories.Sinusoid;
+    //Set up's by weapen owner при получении
+    public List<UnitType> targets;
+    #endregion
+
     #region Editor Fields
     public BaseBullet Bullet;
     public DamageType damageType;
 
     //Default weapon stats stuff
     [SerializeField]
-    protected int baseDamage = DefaultStats.DefaultDamage;
+    protected int baseDamage = DefaultDamage;
     [SerializeField]
-    protected int baseSpeed = DefaultStats.DefaultSpeed;
+    protected int baseSpeed = DefaultSpeed;
     [SerializeField]
     //in miliseconds
-    protected int baseCooldown = DefaultStats.DefaultCooldown;
+    protected int baseCooldown = DefaultCooldown;
     #endregion
 
     #region Scale factors
     public double CooldownFactor { set => cooldown = (int)(value * baseCooldown); }
     public float BulletsSpeedFactor { set => bulletSpeed = (int)(value * baseSpeed); }
     public float BulletsDamageFactor { set => damage = (int)(value * baseDamage); }
-    #endregion
-
-    #region Weapon stats
-    protected int damage;
-    protected int bulletSpeed;
-    //Cooldown in tickets
-    protected int cooldown;
-    protected ParametricFunction function = Traectories.Sinusoid;
-    //Set up's by weapen owner при получении
-    public List<UnitType> targets;
     #endregion
 
     protected bool IsReady = true;

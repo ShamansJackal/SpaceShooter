@@ -2,27 +2,37 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static DefaultStats;
 
 public class BaseBullet : MonoBehaviour
 {
-    const float SPEED_SCALE = 0.001f; 
+    #region Stats
+    const float SPEED_SCALE = 0.001f;
 
-    public int damage = DefaultStats.DefaultDamage;
-    public int speed = DefaultStats.DefaultSpeed;
+    public DamageType damageType = DamageType.Balistic;
+    public int damage = DefaultDamage;
+    public int speed = DefaultSpeed;
     public List<UnitType> targets;
+    #endregion
+
+    #region Components
     public Rigidbody2D body;
     public Animator animator;
     public TrailRenderer trail;
+    #endregion
 
+    #region Movement
     private ParametricFunction traectory = Traectories.Sinusoid;
     private Vector2 prevTraectoryValue = new Vector2(0, 0);
     private Vector2 prevMovementVector = new Vector2(0, 0);
-
     private Quaternion defaultRotation;
+    #endregion
+
+    #region Movement Control
     private byte stoper = 1;
     protected int Ticks { get; private set; } = 0;
+    #endregion
 
-    public DamageType damageType = DamageType.Balistic;
     public static int count = 0;
 
     protected virtual void Start()
@@ -31,6 +41,7 @@ public class BaseBullet : MonoBehaviour
         body = body != null ? body : GetComponent<Rigidbody2D>();
         animator = animator != null ? animator : GetComponent<Animator>();
 
+        body.collisionDetectionMode = DefaultStats.collisionDetectionMode;
         count++;
     }
 
