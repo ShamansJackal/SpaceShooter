@@ -806,6 +806,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelSelector
       objectReference: {fileID: 0}
+    - target: {fileID: 4462679022997170465, guid: d3159ab796c04f14ea7754aad25a428c, type: 3}
+      propertyPath: pools.Array.data[0].size
+      value: 250
+      objectReference: {fileID: 0}
     - target: {fileID: 8439601137551852032, guid: d3159ab796c04f14ea7754aad25a428c, type: 3}
       propertyPath: m_RootOrder
       value: 2

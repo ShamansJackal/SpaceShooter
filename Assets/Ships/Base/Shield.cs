@@ -11,6 +11,6 @@ public class Shield : MonoBehaviour
 
     public void ShieldDown()
     {
-        animator.SetTrigger("ShieldDown");
+        animator.SetBool("ShieldActive", false);
     }
 }

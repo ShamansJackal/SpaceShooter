@@ -57,6 +57,7 @@
     <Compile Include="Assets\Ships\Particals\DamageText.cs" />
     <Compile Include="Assets\Scripts\Enums\DamageTypes.cs" />
     <Compile Include="Assets\Weapons\Bullets\BaseBeam\Beam.cs" />
+    <Compile Include="Assets\Scripts\Pool\ObjectPooler.cs" />
     <Compile Include="Assets\Enverment\Background.cs" />
     <Compile Include="Assets\Scripts\Levels\ILevel.cs" />
     <Compile Include="Assets\Intefaces\IDamageble.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="Assets\Ships\Player\Fps.cs" />
     <Compile Include="Assets\Enverment\Border.cs" />
     <Compile Include="Assets\Weapons\Weapons\Chaingun\Chaingun.cs" />
+    <Compile Include="Assets\Scripts\Pool\IPoolebObject.cs" />
     <Compile Include="Assets\Scripts\Enums\UnitsTypes.cs" />
     <Compile Include="Assets\Scripts\Constants\Traectories.cs" />
     <Compile Include="Assets\Weapons\Weapons\Laser\Laser.cs" />
@@ -78,8 +80,7 @@
     <Compile Include="Assets\Weapons\Weapons\BaseWeapon\BaseWeapon.cs" />
     <Compile Include="Assets\Ships\Player\Playble.cs" />
     <Compile Include="Assets\Ships\Particals\Partical.cs" />
-    <Compile Include="Assets\Scripts\Pool\ObjectPooler.cs" />
-    <Compile Include="Assets\Scripts\Pool\IPoolebObject.cs" />
+    <Compile Include="Assets\Ships\Base\VariableSkins.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
