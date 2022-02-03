@@ -234,12 +234,14 @@ public class Level99 : ILevel
 
         yield return new WaitForSeconds(3.77f);
 
+        DefaultStats.collisionDetectionMode = CollisionDetectionMode2D.Discrete;
+
         while (true)
         {
             var Asteroid = Object.Instantiate(ShipByName("Asteroid"), new Vector3(Random.Range(-8f, 8f), 5.5f), Quaternion.Euler(0, 0, 180));
             Asteroid.Body.angularVelocity = Random.Range(-60, 60);
             Asteroid.velocity = new Vector2(0, -3f);
-            yield return new WaitForSeconds(0.06f);
+            yield return new WaitForSeconds(0.04f);
         }
     }
 }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8439601137551852032}
   - component: {fileID: 8845810142357816148}
+  - component: {fileID: 4462679022997170465}
   m_Layer: 0
   m_Name: LevelSelector
   m_TagString: Untagged
@@ -46,3 +47,19 @@ MonoBehaviour:
   MobsSSS:
   - {fileID: -2613992571995948247, guid: 82c0d57336e703544b7c947da0b396ed, type: 3}
   - {fileID: 4958427211868692027, guid: 5b065594fd8e044459bcbab6b495b984, type: 3}
+--- !u!114 &4462679022997170465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3258447845851315251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34ef98c08dd0c9147b49f20c2acb7dc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - tag: partical
+    prefab: {fileID: 4791733832264673046, guid: a66e71ffda3b3de46a6ae35dbc53a166, type: 3}
+    size: 200

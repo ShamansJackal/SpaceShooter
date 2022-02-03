@@ -1,3 +1,4 @@
+using Pool;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -115,7 +116,7 @@ public class BaseShip: MonoBehaviour, IDamageble
     {
         for(int i=0;i<Random.Range(0,6); i++)
         {
-            var part = Instantiate(partical, transform.position, transform.rotation);
+            var part = ObjectPooler.instance.SpawnFromPool("partical", transform.position, transform.rotation);
             part.GetComponent<SpriteRenderer>().sprite = ParticalSprites[0];
         }
 
