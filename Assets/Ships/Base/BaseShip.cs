@@ -7,7 +7,10 @@ using static DefaultStats;
 public class BaseShip: MonoBehaviour, IDamageble
 {
     protected const float timestep = 0.02f;
-    public bool IsDestroyed { get; protected set; } = false;
+    public bool IsDestroyed {
+        get => _isDestroed;
+        protected set { StopMoving(); _isDestroed = true; }
+    }
     #region Fields
     [Header("Main")]
     public UnitType type;
@@ -21,12 +24,14 @@ public class BaseShip: MonoBehaviour, IDamageble
         get => _weapons;
         set
         {
-            _weapons = new List<BaseWeapon>();
-            for (int i = 0; i < value.Count; i++)
+            _weapons = null;
+
+            for(int i = 0; i<value.Count; i++)
             {
-                _weapons.Add(Instantiate(value[i], transform));
-                _weapons[_weapons.Count-1].targets = Targets;
+                value[i] = Instantiate(value[i], transform);
+                value[i].targets = Targets;
             }
+            _weapons = value;
         }
     }
 
@@ -39,7 +44,7 @@ public class BaseShip: MonoBehaviour, IDamageble
     public Collider2D ShieldCollider;
     public Collider2D BaseCollider;
     public DamageText TextObj;
-    public Animator Animator;
+    public Animator animator;
 
     [Header("Health")]
     public int maxShield;
@@ -49,6 +54,7 @@ public class BaseShip: MonoBehaviour, IDamageble
 
     protected int _healt;
     protected int _shield;
+    protected bool _isDestroed = false;
 
     public int Health
     {
@@ -119,8 +125,14 @@ public class BaseShip: MonoBehaviour, IDamageble
             var part = ObjectPooler.instance.SpawnFromPool("partical", transform.position, transform.rotation);
             part.GetComponent<SpriteRenderer>().sprite = ParticalSprites[0];
         }
+        IsDestroyed = true;
 
-        Destroy(gameObject);
+        animator.SetTrigger("Explosion");
+        BaseCollider.enabled = false;
+        ShieldCollider.enabled = false;
+
+
+        Destroy(gameObject,1);
         return 0;
     }
     

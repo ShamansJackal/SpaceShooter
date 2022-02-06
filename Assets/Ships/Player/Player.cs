@@ -8,13 +8,15 @@ public class Player : MonoBehaviour
 
     public List<BaseWeapon> weapons1;
     public List<BaseWeapon> weapons2;
+    private bool _aoeWeapon;
 
     private float SpeedScale = 0.08f;
     private bool ControleAllowed = true;
 
     private void Start()
     {
-        //Ship = Instantiate(Ship, transform);
+        Ship.Weapons = weapons1;
+        _aoeWeapon = false;
     }
 
     private void OnMouseDown()
@@ -24,12 +26,23 @@ public class Player : MonoBehaviour
 
     public void FixedUpdate()
     {
-        if (Input.GetKey(KeyCode.Alpha1)) Ship.Weapons = weapons1;
-        if (Input.GetKey(KeyCode.Alpha2)) Ship.Weapons = weapons2;
+        var SpeedScale = Ship.Speed;
+
+        if (_aoeWeapon && Input.GetKey(KeyCode.Alpha1))
+        { 
+            Ship.Weapons = weapons1;
+            _aoeWeapon = false;
+        }
+        else if (!_aoeWeapon && Input.GetKey(KeyCode.Alpha2))
+        {
+            Ship.Weapons = weapons2;
+            _aoeWeapon = true;
+        } else if (Input.GetKey(KeyCode.Space))
+        {
+            Ship.Shot();
+        }
 
         if (!ControleAllowed) return;
-        var SpeedScale = Ship.Speed;
-        if (Input.GetKey(KeyCode.Space)) Ship.Shot();
         if (Input.GetKey(KeyCode.Escape)) Application.Quit();
 
         if (Input.GetKey(KeyCode.D)) transform.position += Vector3.right * SpeedScale;
@@ -82,11 +95,11 @@ public class Player : MonoBehaviour
     {
         Ship.BaseCollider.enabled = false;
         Ship.ShieldCollider.enabled = false;
-        Ship.Animator.SetBool("Invicteble", true);
+        Ship.animator.SetBool("Invicteble", true);
         yield return new WaitForSeconds(0.5f);
 
         if(Ship.IsShieldActive) Ship.ShieldCollider.enabled = true;
         else Ship.BaseCollider.enabled = true;
-        Ship.Animator.SetBool("Invicteble", false);
+        Ship.animator.SetBool("Invicteble", false);
     }
 }

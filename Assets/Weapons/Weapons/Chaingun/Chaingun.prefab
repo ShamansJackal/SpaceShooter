@@ -43,9 +43,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d86847d74e248c347854a27cb8b7452a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targets: 
   Bullet: {fileID: -4764439288408588162, guid: 19bd9ebee26a39a42b290b74da85dd0d, type: 3}
   damageType: 0
   baseDamage: 3
   baseSpeed: 600
   baseCooldown: 500
-  targets: 

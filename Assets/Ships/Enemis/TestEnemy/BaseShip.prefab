@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -6670302487942442664}
   - component: {fileID: -16913101502073077}
   - component: {fileID: 1224178068907448270}
+  - component: {fileID: -9202755745623390939}
   m_Layer: 3
   m_Name: BaseShip
   m_TagString: Untagged
@@ -61,7 +62,7 @@ MonoBehaviour:
   ShieldCollider: {fileID: -16913101502073077}
   BaseCollider: {fileID: -6670302487942442664}
   TextObj: {fileID: 1964156136208562156, guid: 34ec014c01098d949a1964b724eefb42, type: 3}
-  Animator: {fileID: 0}
+  animator: {fileID: -9202755745623390939}
   maxShield: 100
   maxHealth: 100
   ShieldObj: {fileID: -7890289441222695443, guid: 5d4ab5c81f2ea9b468e77bf1622f67e0, type: 3}
@@ -133,7 +134,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 9.008798, y: 4.5}
+    oldSize: {x: 9, y: 4.5021973}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -179,6 +180,25 @@ Rigidbody2D:
   m_SleepingMode: 2
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!95 &-9202755745623390939
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5072374558611590423}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2e7acee4f92339847aed2196310e8c2d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &2692966996856156318
 PrefabInstance:
   m_ObjectHideFlags: 0

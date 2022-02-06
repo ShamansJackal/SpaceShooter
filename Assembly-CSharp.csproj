@@ -67,6 +67,7 @@
     <Compile Include="Assets\Ships\Base\Shield.cs" />
     <Compile Include="Assets\Weapons\Bullets\BaseBullet\BaseBullet.cs" />
     <Compile Include="Assets\Ships\Player\HealthText.cs" />
+    <Compile Include="Assets\Ships\Base\VariableSkins.cs" />
     <Compile Include="Assets\Ships\Player\Fps.cs" />
     <Compile Include="Assets\Enverment\Border.cs" />
     <Compile Include="Assets\Weapons\Weapons\Chaingun\Chaingun.cs" />
@@ -80,7 +81,8 @@
     <Compile Include="Assets\Weapons\Weapons\BaseWeapon\BaseWeapon.cs" />
     <Compile Include="Assets\Ships\Player\Playble.cs" />
     <Compile Include="Assets\Ships\Particals\Partical.cs" />
-    <Compile Include="Assets\Ships\Base\VariableSkins.cs" />
+    <Compile Include="Assets\Ships\Player\Abiilitys\ICooldownable.cs" />
+    <Compile Include="Assets\Ships\Player\Abiilitys\ChangeWeaponSet.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

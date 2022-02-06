@@ -48,13 +48,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c512d1163240c04da5c493186b03a2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageType: 0
   damage: 10
   speed: 30
   targets: 
   body: {fileID: 4666382979513457890}
   animator: {fileID: -5733021246467752062}
   trail: {fileID: -7450476762877016805}
-  damageType: 0
 --- !u!212 &8063473682972847756
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -151,7 +151,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 2
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!95 &-5733021246467752062
 Animator:

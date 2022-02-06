@@ -41,7 +41,7 @@ public class BaseBullet : MonoBehaviour
         body = body != null ? body : GetComponent<Rigidbody2D>();
         animator = animator != null ? animator : GetComponent<Animator>();
 
-        body.collisionDetectionMode = DefaultStats.collisionDetectionMode;
+        body.collisionDetectionMode = collisionDetectionMode;
         count++;
     }
 

@@ -60,7 +60,7 @@ MonoBehaviour:
   ShieldCollider: {fileID: -373166156326663470}
   BaseCollider: {fileID: -373166156326663470}
   TextObj: {fileID: 1964156136208562156, guid: 34ec014c01098d949a1964b724eefb42, type: 3}
-  Animator: {fileID: 5463472891306596578}
+  animator: {fileID: 5463472891306596578}
   maxShield: 0
   maxHealth: 40
   ShieldObj: {fileID: -7890289441222695443, guid: 5d4ab5c81f2ea9b468e77bf1622f67e0, type: 3}
@@ -125,7 +125,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: -1839377291145181718, guid: 6be8151432946fa4fbd029c132de1460, type: 3}
+  m_Sprite: {fileID: 1326971399849966306, guid: 6be8151432946fa4fbd029c132de1460, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -162,7 +162,7 @@ Animator:
   m_GameObject: {fileID: 5447571117173872218}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2e7acee4f92339847aed2196310e8c2d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

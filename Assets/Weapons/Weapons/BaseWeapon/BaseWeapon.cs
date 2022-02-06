@@ -58,11 +58,11 @@ public class BaseWeapon : MonoBehaviour
     {
         if (IsReady)
         {
+            StartCoroutine(StartCooldown());
             SpawnBullet();
             SpawnBullet(Quaternion.Euler(0, -180, 0));
             //SpawnBullet(Quaternion.Euler(0, 0, -30));
             //SpawnBullet(Quaternion.Euler(0, 0, 30));
-            StartCoroutine(StartCooldown());
         }
     }
 

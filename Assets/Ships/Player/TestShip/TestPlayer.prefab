@@ -63,7 +63,7 @@ MonoBehaviour:
   ShieldCollider: {fileID: 1436853089144728286}
   BaseCollider: {fileID: -1624956640584920483}
   TextObj: {fileID: 1964156136208562156, guid: 34ec014c01098d949a1964b724eefb42, type: 3}
-  Animator: {fileID: -2002985022000127364}
+  animator: {fileID: -2002985022000127364}
   maxShield: 100
   maxHealth: 100
   ShieldObj: {fileID: 4803622006829694347, guid: d7712263557a1a34880f281eb612aeff, type: 3}
