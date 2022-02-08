@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public static Player instance;
+    public Dictionary<string, IAbility> Abilitys = new Dictionary<string, IAbility>();
+
     public BaseShip Ship;
 
     public List<BaseWeapon> weapons1;
@@ -13,10 +16,17 @@ public class Player : MonoBehaviour
     private float SpeedScale = 0.08f;
     private bool ControleAllowed = true;
 
+    public void Awake()
+    {
+        instance = this;
+    }
+
     private void Start()
     {
         Ship.Weapons = weapons1;
         _aoeWeapon = false;
+
+        Abilitys["SwapWeapons"] = new ChangeWeaponSet(this, weapons1, weapons2);
     }
 
     private void OnMouseDown()
@@ -27,20 +37,7 @@ public class Player : MonoBehaviour
     public void FixedUpdate()
     {
         var SpeedScale = Ship.Speed;
-
-        if (_aoeWeapon && Input.GetKey(KeyCode.Alpha1))
-        { 
-            Ship.Weapons = weapons1;
-            _aoeWeapon = false;
-        }
-        else if (!_aoeWeapon && Input.GetKey(KeyCode.Alpha2))
-        {
-            Ship.Weapons = weapons2;
-            _aoeWeapon = true;
-        } else if (Input.GetKey(KeyCode.Space))
-        {
-            Ship.Shot();
-        }
+        if (Input.GetKey(KeyCode.Space)) Ship.Shot();
 
         if (!ControleAllowed) return;
         if (Input.GetKey(KeyCode.Escape)) Application.Quit();
