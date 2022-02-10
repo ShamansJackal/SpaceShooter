@@ -48,8 +48,7 @@ namespace Pool
 
             var obj = PoolDictionary[name].Dequeue();
 
-            obj.transform.position = position;
-            obj.transform.rotation = rotation;
+            obj.transform.SetPositionAndRotation(position, rotation);
             obj.SetActive(true);
             PoolDictionary[name].Enqueue(obj);
 

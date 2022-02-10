@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\Levels\ILevel.cs" />
     <Compile Include="Assets\Intefaces\IDamageble.cs" />
     <Compile Include="Assets\Scripts\Levels\Level00.cs" />
+    <Compile Include="Assets\Scripts\Levels\LevelFromFile.cs" />
     <Compile Include="Assets\Enverment\Spawner.cs" />
     <Compile Include="Assets\Scripts\Levels\Level99.cs" />
     <Compile Include="Assets\Ships\Base\Shield.cs" />
