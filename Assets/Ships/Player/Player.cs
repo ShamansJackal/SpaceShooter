@@ -11,9 +11,6 @@ public class Player : MonoBehaviour
 
     public List<BaseWeapon> weapons1;
     public List<BaseWeapon> weapons2;
-    private bool _aoeWeapon;
-
-    private float SpeedScale = 0.08f;
     private bool ControleAllowed = true;
 
     public void Awake()
@@ -24,7 +21,6 @@ public class Player : MonoBehaviour
     private void Start()
     {
         Ship.Weapons = weapons1;
-        _aoeWeapon = false;
 
         Abilitys["SwapWeapons"] = new ChangeWeaponSet(this, weapons1, weapons2);
     }
@@ -49,18 +45,6 @@ public class Player : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftArrow)) transform.rotation *= Quaternion.AngleAxis(3f, Vector3.forward);
         if (Input.GetKey(KeyCode.RightArrow)) transform.rotation *= Quaternion.AngleAxis(3f, Vector3.back);
-
-        //ProffilngBullets();
-    }
-
-    private static void ProffilngBullets()
-    {
-        if (1.0f / Time.deltaTime > 60)
-            Debug.Log($"{BaseBullet.count} time:{1.0f / Time.deltaTime}");
-        if (1.0f / Time.deltaTime < 40)
-            Debug.LogWarning($"{BaseBullet.count} time:{1.0f / Time.deltaTime}");
-        if (1.0f / Time.deltaTime < 24)
-            Debug.LogError($"{BaseBullet.count} time:{1.0f / Time.deltaTime}");
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
