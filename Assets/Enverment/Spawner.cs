@@ -9,10 +9,10 @@ public class Spawner : MonoBehaviour
     private Random rnd = new Random(228);
     void Start()
     {
-        StartCoroutine(spawn());
+        StartCoroutine(Spawn());
     }
 
-    IEnumerator spawn()
+    IEnumerator Spawn()
     {
         while (true)
         {

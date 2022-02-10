@@ -7,11 +7,11 @@ public class Level99 : ILevel
 {
     public IEnumerator StartLevel()
     {
-        var ShipL2 = Object.Instantiate(ShipByName("BaseShip"), new Vector2(6f, 5.5f), Quaternion.Euler(0, 0, 180));
-        var ShipR2 = Object.Instantiate(ShipByName("BaseShip"), new Vector2(-6, 5.5f), Quaternion.Euler(0, 0, 180));
-        var ShipL1 = Object.Instantiate(ShipByName("BaseShip"), new Vector2(3f, 5.5f), Quaternion.Euler(0, 0, 180));
-        var ShipR1 = Object.Instantiate(ShipByName("BaseShip"), new Vector2(-3, 5.5f), Quaternion.Euler(0, 0, 180));
-        var ShipC0 = Object.Instantiate(ShipByName("BaseShip"), new Vector2(0f, 5.5f), Quaternion.Euler(0, 0, 180));
+        var ShipL2 = Object.Instantiate(ShipByName("TestEnemy"), new Vector2(6f, 5.5f), Quaternion.Euler(0, 0, 180));
+        var ShipR2 = Object.Instantiate(ShipByName("TestEnemy"), new Vector2(-6, 5.5f), Quaternion.Euler(0, 0, 180));
+        var ShipL1 = Object.Instantiate(ShipByName("TestEnemy"), new Vector2(3f, 5.5f), Quaternion.Euler(0, 0, 180));
+        var ShipR1 = Object.Instantiate(ShipByName("TestEnemy"), new Vector2(-3, 5.5f), Quaternion.Euler(0, 0, 180));
+        var ShipC0 = Object.Instantiate(ShipByName("TestEnemy"), new Vector2(0f, 5.5f), Quaternion.Euler(0, 0, 180));
         List<BaseShip> ships = new List<BaseShip> { ShipL2, ShipL1, ShipC0, ShipR1, ShipR2 };
 
         ShipC0.velocity = new Vector2(0, -2.75f);
@@ -90,11 +90,11 @@ public class Level99 : ILevel
         ShipR1.velocity = new Vector2(0, -2.75f);
 
         #region stage2
-        ShipL2 = Object.Instantiate(ShipByName("BaseShip"), new Vector2(6f, 5.5f), Quaternion.Euler(0, 0, 180));
-        ShipR2 = Object.Instantiate(ShipByName("BaseShip"), new Vector2(-6, 5.5f), Quaternion.Euler(0, 0, 180));
-        ShipL1 = Object.Instantiate(ShipByName("BaseShip"), new Vector2(3f, 5.5f), Quaternion.Euler(0, 0, 180));
-        ShipR1 = Object.Instantiate(ShipByName("BaseShip"), new Vector2(-3, 5.5f), Quaternion.Euler(0, 0, 180));
-        ShipC0 = Object.Instantiate(ShipByName("BaseShip"), new Vector2(0f, 5.5f), Quaternion.Euler(0, 0, 180));
+        ShipL2 = Object.Instantiate(ShipByName("TestEnemy"), new Vector2(6f, 5.5f), Quaternion.Euler(0, 0, 180));
+        ShipR2 = Object.Instantiate(ShipByName("TestEnemy"), new Vector2(-6, 5.5f), Quaternion.Euler(0, 0, 180));
+        ShipL1 = Object.Instantiate(ShipByName("TestEnemy"), new Vector2(3f, 5.5f), Quaternion.Euler(0, 0, 180));
+        ShipR1 = Object.Instantiate(ShipByName("TestEnemy"), new Vector2(-3, 5.5f), Quaternion.Euler(0, 0, 180));
+        ShipC0 = Object.Instantiate(ShipByName("TestEnemy"), new Vector2(0f, 5.5f), Quaternion.Euler(0, 0, 180));
 
         ShipC0.velocity = new Vector2(0, -2.75f);
         ShipL2.velocity = new Vector2(0, -2.75f);
@@ -173,11 +173,11 @@ public class Level99 : ILevel
         #endregion
 
         #region stage3
-        ShipL2 = Object.Instantiate(ShipByName("BaseShip"), new Vector2(6f, 5.5f), Quaternion.Euler(0, 0, 180));
-        ShipR2 = Object.Instantiate(ShipByName("BaseShip"), new Vector2(-6, 5.5f), Quaternion.Euler(0, 0, 180));
-        ShipL1 = Object.Instantiate(ShipByName("BaseShip"), new Vector2(3f, 5.5f), Quaternion.Euler(0, 0, 180));
-        ShipR1 = Object.Instantiate(ShipByName("BaseShip"), new Vector2(-3, 5.5f), Quaternion.Euler(0, 0, 180));
-        ShipC0 = Object.Instantiate(ShipByName("BaseShip"), new Vector2(0f, 5.5f), Quaternion.Euler(0, 0, 180));
+        ShipL2 = Object.Instantiate(ShipByName("TestEnemy"), new Vector2(6f, 5.5f), Quaternion.Euler(0, 0, 180));
+        ShipR2 = Object.Instantiate(ShipByName("TestEnemy"), new Vector2(-6, 5.5f), Quaternion.Euler(0, 0, 180));
+        ShipL1 = Object.Instantiate(ShipByName("TestEnemy"), new Vector2(3f, 5.5f), Quaternion.Euler(0, 0, 180));
+        ShipR1 = Object.Instantiate(ShipByName("TestEnemy"), new Vector2(-3, 5.5f), Quaternion.Euler(0, 0, 180));
+        ShipC0 = Object.Instantiate(ShipByName("TestEnemy"), new Vector2(0f, 5.5f), Quaternion.Euler(0, 0, 180));
 
         ShipC0.velocity = new Vector2(0, -2.75f);
         ShipL2.velocity = new Vector2(0, -2.75f);

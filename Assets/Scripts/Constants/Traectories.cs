@@ -10,8 +10,6 @@ public delegate Vector2 ParametricFunction(float t);
 
 public static class Traectories
 {
-    private readonly static float SPEED_SCALE = 0.001f;
-
     public static ParametricFunction Direct;
     public static ParametricFunction Sinusoid;
     public static ParametricFunction Spiral;

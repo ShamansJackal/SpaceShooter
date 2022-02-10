@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1224178068907448270}
   - component: {fileID: -9202755745623390939}
   m_Layer: 3
-  m_Name: BaseShip
+  m_Name: TestEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
