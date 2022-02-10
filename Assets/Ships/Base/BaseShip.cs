@@ -16,22 +16,27 @@ public class BaseShip: MonoBehaviour, IDamageble
     public UnitType type;
     public List<UnitType> Targets;
     public float Speed;
-    public BaseWeapon Weapon => Weapons[0];
 
-    [SerializeField]
-    protected List<BaseWeapon> _weapons;
-    public List<BaseWeapon> Weapons {
+    public BaseWeapon[] StartedWeapons;
+
+    private BaseWeapon[] _weapons = new BaseWeapon[] { };
+    public BaseWeapon[] Weapons {
         get => _weapons;
         set
         {
-            _weapons = null;
+            List<BaseWeapon> tmp = new List<BaseWeapon>(_weapons);
+            _weapons = new BaseWeapon[] { };
 
-            for(int i = 0; i<value.Count; i++)
+            foreach (var weapon in tmp)
+                Destroy(weapon.gameObject);
+
+            tmp = new List<BaseWeapon>(value);
+            for(int i = 0; i< tmp.Count; i++)
             {
-                value[i] = Instantiate(value[i], transform);
-                value[i].targets = Targets;
+                tmp[i] = Instantiate(tmp[i], transform);
+                tmp[i].targets = Targets;
             }
-            _weapons = value;
+            _weapons = tmp.ToArray();
         }
     }
 
@@ -86,9 +91,9 @@ public class BaseShip: MonoBehaviour, IDamageble
 
     public bool IsShieldActive => _shield > 0;
 
-    public virtual void Start()
+    public virtual void Awake()
     {
-        Weapons = _weapons;
+        Weapons = StartedWeapons;
         Body.collisionDetectionMode = collisionDetectionMode;
 
         Health = maxHealth;
@@ -161,7 +166,7 @@ public class BaseShip: MonoBehaviour, IDamageble
 
     private void OnDestroy()
     {
-        Weapons = new List<BaseWeapon>();
+        Weapons = new BaseWeapon[] { };
         IsDestroyed = true;
         //StopAllCoroutines();
     }

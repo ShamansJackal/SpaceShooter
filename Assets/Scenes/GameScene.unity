@@ -243,7 +243,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!68 &133703377
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -429,6 +429,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -1006641578340043502, guid: d94ad4cd8ec9e1046bd9194230c2970b, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1006641578340043502, guid: d94ad4cd8ec9e1046bd9194230c2970b, type: 3}
       propertyPath: weapons1.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -483,6 +487,10 @@ PrefabInstance:
     - target: {fileID: 2970718421101400960, guid: d94ad4cd8ec9e1046bd9194230c2970b, type: 3}
       propertyPath: Speed
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2970718421101400960, guid: d94ad4cd8ec9e1046bd9194230c2970b, type: 3}
+      propertyPath: _weapons.Array.size
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5639765350136716929, guid: d94ad4cd8ec9e1046bd9194230c2970b, type: 3}
       propertyPath: m_Name
@@ -1061,7 +1069,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3258447845851315251, guid: d3159ab796c04f14ea7754aad25a428c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4462679022997170465, guid: d3159ab796c04f14ea7754aad25a428c, type: 3}
       propertyPath: pools.Array.data[0].size
@@ -1247,6 +1255,7 @@ GameObject:
   - component: {fileID: 836212713}
   - component: {fileID: 836212712}
   - component: {fileID: 836212711}
+  - component: {fileID: 836212714}
   m_Layer: 5
   m_Name: ChangeWeaponBtn
   m_TagString: Untagged
@@ -1355,6 +1364,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 836212709}
   m_CullTransparentMesh: 0
+--- !u!114 &836212714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 836212709}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4d6e25dd83720f40b339e40a4877c7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 11400000, guid: a248c78d756b2a04995a8288fdda5c74, type: 2}
+  spriteRenderer: {fileID: 836212712}
 --- !u!4 &899179679 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1611866280949555538, guid: 1fa4e6d2a8a7c8243b6a4be14fce56a6, type: 3}

@@ -9,8 +9,8 @@ public class Player : MonoBehaviour
 
     public BaseShip Ship;
 
-    public List<BaseWeapon> weapons1;
-    public List<BaseWeapon> weapons2;
+    public BaseWeapon[] weapons1;
+    public BaseWeapon[] weapons2;
     private bool ControleAllowed = true;
 
     public void Awake()
@@ -18,10 +18,9 @@ public class Player : MonoBehaviour
         instance = this;
     }
 
-    private void Start()
+    public void Start()
     {
         Ship.Weapons = weapons1;
-
         Abilitys["SwapWeapons"] = new ChangeWeaponSet(this, weapons1, weapons2);
     }
 

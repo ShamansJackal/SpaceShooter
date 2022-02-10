@@ -7,12 +7,12 @@ public class ChangeWeaponSet : IAbility
     private float cooldown = 0.5f;
     private float usageTime = 0f;
 
-    private readonly List<BaseWeapon> weapons1;
-    private readonly List<BaseWeapon> weapons2;
+    private readonly BaseWeapon[] weapons1;
+    private readonly BaseWeapon[] weapons2;
     private readonly Player player;
 
     private bool weaponId = false;
-    public ChangeWeaponSet(Player player, List<BaseWeapon> weapons1, List<BaseWeapon> weapons2)
+    public ChangeWeaponSet(Player player, BaseWeapon[] weapons1, BaseWeapon[] weapons2)
     {
         this.weapons1 = weapons1;
         this.weapons2 = weapons2;
