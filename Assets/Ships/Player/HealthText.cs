@@ -10,7 +10,7 @@ public class HealthText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = FindObjectOfType<Player>().Ship;
+        player = Player.instance.Ship;
     }
 
     // Update is called once per frame
