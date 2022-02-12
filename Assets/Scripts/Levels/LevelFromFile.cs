@@ -15,7 +15,7 @@ public class LevelFromFile : ILevel
     {
         string path = @"D:\level.txt";
         var lines = File.ReadAllLines(path);
-        Dictionary<string, BaseShip> ship = new Dictionary<string, BaseShip>();
+        Dictionary<string, BaseShip> ships = new Dictionary<string, BaseShip>();
         Quaternion rot = Quaternion.Euler(0, 0, 180);
 
         foreach (var line in lines)
@@ -27,33 +27,34 @@ public class LevelFromFile : ILevel
             string xStr = match.Groups["x_pos"].Value.Trim();
             string yStr = match.Groups["y_pos"].Value.Trim();
 
-            if(Regex.IsMatch(line, @"spawn\(.+?,.+?,.+?,.+?\)"))
+            if (string.IsNullOrWhiteSpace(line) || Regex.IsMatch(line, "//")) continue;
+            else if(Regex.IsMatch(line, @"spawn\(.+?,.+?,.+?,.+?\)"))
             {
                 float x = float.Parse(xStr, CultureInfo.InvariantCulture);
                 float y = float.Parse(yStr, CultureInfo.InvariantCulture);
 
-                ship[varName] = Object.Instantiate(ShipByName(shipName), new Vector3(x,y),rot);
+                ships[varName] = Object.Instantiate(ShipByName(shipName), new Vector3(x,y),rot);
             }
             else if(Regex.IsMatch(line, @"move\(.+,.+,.+\)"))
             {
                 float x = float.Parse(xStr, CultureInfo.InvariantCulture);
                 float y = float.Parse(yStr, CultureInfo.InvariantCulture);
 
-                ship[varName].velocity = new Vector3(x,y);
+                ships[varName].velocity = new Vector3(x,y);
             }
             else if(Regex.IsMatch(line, @"localMove\(.+,.+,.+\)"))
             {
                 float x = float.Parse(xStr, CultureInfo.InvariantCulture);
                 float y = float.Parse(yStr, CultureInfo.InvariantCulture);
 
-                ship[varName].SetLocalVelocity(new Vector2(x, y));
+                ships[varName].SetLocalVelocity(new Vector2(x, y));
             }
             else if(Regex.IsMatch(line, @"stop\(.+\)")){
-                ship[varName].StopMoving();
+                ships[varName].StopMoving();
             }
             else if(Regex.IsMatch(line, @"shot\(.+\)"))
             {
-                ship[varName].Shot();
+                ships[varName].Shot();
             }
             else if(Regex.IsMatch(line, @"wait\(.+\)"))
             {
@@ -61,15 +62,15 @@ public class LevelFromFile : ILevel
             }
             else if(Regex.IsMatch(line, @"rotation\(.+,.+\)"))
             {
-                ship[varName].transform.rotation = Quaternion.Euler(0,0,float.Parse(shipName, CultureInfo.InvariantCulture));
+                ships[varName].transform.rotation = Quaternion.Euler(0,0,float.Parse(shipName, CultureInfo.InvariantCulture));
             }
             else if(Regex.IsMatch(line, @"stopRotation\(.+\)"))
             {
-                ship[varName].StopRotation();
+                ships[varName].StopRotation();
             }
             else if(Regex.IsMatch(line, @"rotate\(.+,.+\)"))
             {
-                ship[varName].angularVelocity = float.Parse(shipName, CultureInfo.InvariantCulture); ;
+                ships[varName].angularVelocity = float.Parse(shipName, CultureInfo.InvariantCulture); ;
             }
         }
     }
