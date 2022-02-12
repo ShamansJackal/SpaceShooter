@@ -492,6 +492,10 @@ PrefabInstance:
       propertyPath: _weapons.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2970718421101400960, guid: d94ad4cd8ec9e1046bd9194230c2970b, type: 3}
+      propertyPath: StartedWeapons.Array.data[0]
+      value: 
+      objectReference: {fileID: -8792736466095257825, guid: 7049781b6ec13044598384123aaf2524, type: 3}
     - target: {fileID: 5639765350136716929, guid: d94ad4cd8ec9e1046bd9194230c2970b, type: 3}
       propertyPath: m_Name
       value: TestPlayer
@@ -1371,7 +1375,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 836212709}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4d6e25dd83720f40b339e40a4877c7e, type: 3}
   m_Name: 
