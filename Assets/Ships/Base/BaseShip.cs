@@ -9,7 +9,7 @@ public class BaseShip: MonoBehaviour, IDamageble
     protected const float timestep = 0.02f;
     public bool IsDestroyed {
         get => _isDestroed;
-        protected set { StopMoving(); _isDestroed = true; }
+        protected set { velocity = Vector2.zero; _isDestroed = true; }
     }
     #region Fields
     [Header("Main")]
@@ -41,6 +41,16 @@ public class BaseShip: MonoBehaviour, IDamageble
     }
 
     public Rigidbody2D Body;
+    public Vector2 velocity
+    {
+        get => IsDestroyed ? Vector2.zero : Body.velocity;
+        set { if (!IsDestroyed) Body.velocity = value;}
+    }
+    public float angularVelocity
+    {
+        get => IsDestroyed ? 0f : Body.angularVelocity;
+        set { if (!IsDestroyed) Body.angularVelocity = value;}
+    }
 
     public List<Sprite> ParticalSprites;
     public Partical partical;
@@ -169,19 +179,5 @@ public class BaseShip: MonoBehaviour, IDamageble
         Weapons = new BaseWeapon[] { };
         IsDestroyed = true;
         //StopAllCoroutines();
-    }
-
-    public Vector2 velocity
-    {
-        get => IsDestroyed ? Vector2.zero : Body.velocity;
-        set
-        {
-            if (!IsDestroyed) Body.velocity = value;
-        } 
-    }
-
-    public void StopMoving()
-    {
-        if (!IsDestroyed) Body.velocity = Vector2.zero;
     }
 }

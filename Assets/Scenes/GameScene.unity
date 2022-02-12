@@ -243,7 +243,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!68 &133703377
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -302,10 +302,10 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 133703376}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c9ea3c335da95de4c94cb7c57d8aca22, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 13bbb7b131f351c4f85d5fa4c854cc6f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.084
   m_Pitch: 1
@@ -825,8 +825,9 @@ GameObject:
   - component: {fileID: 394690553}
   - component: {fileID: 394690552}
   - component: {fileID: 394690551}
+  - component: {fileID: 394690554}
   m_Layer: 5
-  m_Name: ChangeWeaponBtn (4)
+  m_Name: ReloadScene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -933,6 +934,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 394690549}
   m_CullTransparentMesh: 0
+--- !u!114 &394690554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394690549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4d6e25dd83720f40b339e40a4877c7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ability: {fileID: 11400000, guid: 1e64a50d1dd3aee4abdfd2345bdc4155, type: 2}
+  spriteRenderer: {fileID: 394690552}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1073,7 +1088,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3258447845851315251, guid: d3159ab796c04f14ea7754aad25a428c, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4462679022997170465, guid: d3159ab796c04f14ea7754aad25a428c, type: 3}
       propertyPath: pools.Array.data[0].size

@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     {
         Ship.Weapons = weapons1;
         Abilitys["SwapWeapons"] = new ChangeWeaponSet(this, weapons1, weapons2);
+        Abilitys["ReloadScene"] = new ReloadScene();
     }
 
     private void OnMouseDown()
