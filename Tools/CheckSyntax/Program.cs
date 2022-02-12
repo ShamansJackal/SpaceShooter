@@ -10,7 +10,11 @@ namespace CheckSyntax
     {
         static void Main(string[] args)
         {
-            string path = @"level.txt";
+            string path;
+
+            if (args.Length > 0) path = @"..\level.txt";
+            else path = args[0];
+
             var lines = File.ReadAllLines(path);
             Dictionary<string, int> ships = new Dictionary<string, int>();
 
