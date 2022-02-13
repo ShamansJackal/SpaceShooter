@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="src\style.css">
+</head>
+<body>
+    <h1>Названия кораблей</h1>
+    <table>
+
+            <tr>
+              <td>
+                <h3>Asteroid</h3>
+                <h6>Shield:0</h6>
+                <h6>Hp:40</h6>
+              </td>
+              <td>
+                <img height=120 src="src\Asteroid.png">
+              </td>
+            </tr>
+    
+            <tr>
+              <td>
+                <h3>TestEnemy</h3>
+                <h6>Shield:100</h6>
+                <h6>Hp:100</h6>
+              </td>
+              <td>
+                <img height=120 src="src\TestEnemy.png">
+              </td>
+            </tr>
+    
+    </table>
+  <div>
+    <h1>Создание уровней</h1>
+    Сценарий уровня должен лежать в <code>D:\level.txt</code>
+    <br>
+    <br>
+    <span>Описание команд:</span>
+
+    <div class="command-desc">
+      <code>spawn(var_name,ship_type,x,y)</code> - создание нового объекта<br>
+      <br>
+      <code>var_name</code> - имя новой переменной<br>
+      <code>ship_type</code> - тип корабля<br>
+      <code>x</code> - позиция по Х<br>
+      <code>y</code> - позиция по Y<br>
+    </div>
+
+    <div class="command-desc">
+      <code>move(var_name,x,y)</code> - задать скорость движение объекта<br>
+      <br>
+      <code>var_name</code> - имя переменной<br>
+      <code>x</code> - длина вектора по оси Х<br>
+      <code>y</code> - длина вектора по оси Y<br>
+    </div>
+
+    <div class="command-desc">
+      <code>localMove(var_name,x,y)</code> - задать скорость движение объекта с учётом текущего поврота объекта<br>
+      <br>
+      <code>var_name</code> - имя переменной<br>
+      <code>x</code> - длина вектора по оси Х<br>
+      <code>y</code> - длина вектора по оси Y<br>
+    </div>
+
+    <div class="command-desc">
+      <code>stop(var_name)</code> - остановить движение объекта<br>
+      <br>
+      <code>var_name</code> - имя переменной<br>
+    </div>
+
+    <div class="command-desc">
+      <code>shot(var_name)</code> - объект делает выстрел<br>
+      <br>
+      <code>var_name</code> - имя переменной<br>
+    </div>
+
+    <div class="command-desc">
+      <code>wait(time)</code> - скрипт простаевает(ни одно свойство объект не меняеться)<br>
+      <br>
+      <code>time</code> - время простоя в секундах<br>
+    </div>
+
+    <div class="command-desc">
+      <code>rotation(var_name,speed)</code> - задать скорость вращения объекта в гр/сек<br>
+      <br>
+      <code>var_name</code> - имя переменной<br>
+      <code>speed</code> - скорость вращения<br>
+    </div>
+
+    <div class="command-desc">
+      <code>rotate(var_name,n)</code> - задать объекту угол<br>
+      <br>
+      <code>var_name</code> - имя переменной<br>
+      <code>n</code> - угол поврота<br>
+    </div>
+
+    <div class="command-desc">
+      <code>stopRotation(var_name)</code> - остановить вращение объекта<br>
+      <br>
+      <code>var_name</code> - имя переменной<br>
+    </div>
+
+  </div>
+</body>

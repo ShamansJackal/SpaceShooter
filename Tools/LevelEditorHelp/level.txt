@@ -1,0 +1,5 @@
+spawn(e1,TestEnemy,6,5.5)
+move(e1,0,-2.75)
+wait(2)
+stop(e1)
+shot(e1)
